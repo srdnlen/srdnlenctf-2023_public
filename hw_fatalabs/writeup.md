@@ -1,5 +1,5 @@
 # Writeup
-To solve this challenge, a VHDL file describing the behavior of an MCU within a board created to act as an ABS and a datasheet describing the behavior of a humidity sensor connected to the board were attached to provide real-time information about air humidity conditions (and thus asphalt conditions).
+To solve this challenge, a VHDL file describing the behavior of an MCU within a board created to act as an ABS, a datasheet describing the behavior of a humidity sensor connected to the board was attached to provide real-time information about air humidity conditions (and thus asphalt conditions).
 
 ## Solution
 
@@ -15,7 +15,7 @@ But upon closer inspection, there is a problem: in line 98, the bits for the MOD
 
 When VHDL has fewer bits than expected, it adds the remaining bits to the left in the form of zeros. So, the pointed register will be '01001100' (ORDER) and not MODE (10001100).
 
-This means that by setting 0x20 in the ORDER register, we are keeping it with its default value, which is big endian. Meanwhile, the MODE will produce a value ranging from 0 to 255 (as it is set to 8 bits).
+This means that by setting 0x20 in the ORDER register, we are keeping it with its default value, which is big-endian. Meanwhile, the MODE will produce a value ranging from 0 to 255 (as it is set to 8 bits).
 
 Moving on, from line 139, the MCU takes the 16 bits sent by the sensor, but it only takes the first 8, which in this case are 8 zeros.
 

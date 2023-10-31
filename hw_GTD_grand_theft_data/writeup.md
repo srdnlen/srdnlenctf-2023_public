@@ -1,6 +1,6 @@
-# Writeup (part 1, 2 and 3)
+# Writeup (parts 1, 2, 3)
 
-## Part 1: hardware
+## Part 1: Hardware
 
 How to approach the first part of the hardware? The challenge description provides the 'netcat' command along with the address where the service is listening.
 
@@ -74,7 +74,7 @@ Following this principle, it's possible to create a program that performs a dump
 ```python
 from pwn import *
 
-# here I configure my connection constants
+# Here I configure my connection constants
 host = '172.17.0.1'
 port = 42069
 
@@ -82,7 +82,7 @@ port = 42069
 conn = remote(host, port)
 conn.recvuntil(b'op[32] <= ')
 
-# list to store all of the bytes
+# List to store all of the bytes
 resp = []
 
 # view the notes to know why there is a try-except block
@@ -92,13 +92,13 @@ try:
         print(f'Receiving byten {i}')
         # send the address line with the opcode
         conn.sendline(b'11' + bin(i)[2:].zfill(30).encode('ascii'))
-        # it receive until it encounter another input request
+        # It receives until it encounters another input request
         tmp = conn.recvuntil(b'op[32] <= ') # -> 'avb|status|data_out[8] => 1001001001\n'
         # splits it
         # 1. ['avb|status|data_out[8] ', '1001001001\n']
         # 2. tmp = 1001001001
         tmp = tmp.split(b'=> ')[1].split(b'\n')[0] 
-        # remove the first two bits and transform byte into chars
+        # remove the first two bits and transform the byte into chars
         tmp = tmp[2:].decode('ascii')
         resp.append(int(tmp, 2)) # converting binary string into a int value
 except:
@@ -118,7 +118,7 @@ print('Done! eepromdump.bin')
 ### Note
 I would like to thank [@auguzanellato](https://github.com/augustozanellato) for pointing out the fact that immediately after reaching the last 'valid' address (where actual data was stored), the server stopped responding. This caused a halt in the input flow right after dumping the program present in the EEPROM.
 
-Immediately after receiving the ticket, the bug was fixed, ensuring that the server dumped all the way to address 8191.
+Immediately after receiving the ticket, the bug was fixed, ensuring that the server was dumped all the way to address 8191.
 
 ## Part 2: crypto
 
@@ -341,10 +341,10 @@ From here, it can be seen that the content of the EEPROM is a program (ELF) XORe
 
 ## Part 3: rev
 
-For this part of writeup i used "avr-objdump" and "IDA" along with "simavr" and "avr-gdb" to run and debug the binary.
+For this part of the writeup, I used "avr-objdump" and "IDA" along with "simavr" and "avr-gdb" to run and debug the binary.
 
 
-Keep in mind that in atmega328p registers can only contain one byte.
+Keep in mind that atmega328p registers can only contain one byte.
 
 
 [AVR Instruction Set Manual](https://ww1.microchip.com/downloads/en/devicedoc/atmel-0856-avr-instruction-set-manual.pdf)
@@ -353,7 +353,7 @@ To run and debug the binary we use
 ```shell
 simavr -d -g -m atmega328p main.elf
 ```
-and then we can run avr-gdb and attach to the process
+and then we can run avr-gdb and attach it the process
 ```shell
 avr-gdb main.elf
 target remote :1234
@@ -365,13 +365,13 @@ sbi     DDRD, DDD2    (sbi	0x0a, 2)
 cbi     PORTD, PORTD2 (cbi	0x0b, 2)
 ```
 
-Analysing the function we can notice that it loads something from Z+ to r0
+Analyzing the function we can notice that it loads something from Z+ to r0
 ```assembly
 ld      r0, Z+
 tst     r0
 brne	.-6 
 ```
-This is our input, in fact if we analyse it with avr-gdb we will notice it loading all the values from register r0 to r27, every register is one byte long,
+This is our input, in fact, if we analyze it with avr-gdb we will notice it loading all the values from register r0 to r27, every register is one byte long,
 it then checks how many bytes we loaded (the program adds 0x1 to the number of bytes)
 ```assembly
 sbiw	r30, 0x1d (29)
@@ -381,7 +381,7 @@ rjmp	.-2
 
 It will pass the check only if we loaded 28 bytes, from this we can assume that our flag is 28 characters long, otherwise it'll end in an infinite loop.
 
-The next task will be to analyse the function that is being called by "main", we need it to return true in order to exec "sbi     PORTD, PORTD2" instruction
+The next task will be to analyze the function that is being called by "main", we need it to return true in order to exec "sbi     PORTD, PORTD2" instruction
 ```assembly
 ldi     r24, 0
 ldi     r25, 0
@@ -391,7 +391,7 @@ breq	.+2
 sbi     PORTD, PORTD2 (0x0b, 2)
 ```
 
-After disassembling the function we will see that it consists in a really big loop that repet itself 27 times, but before analysing it, we can jump to the end of the function, there we can notice that it will return true only if r2 == 27
+After disassembling the function we will see that it consists of a really big loop that repeats itself 27 times, but before analyzing it, we can jump to the end of the function, we can notice that it will return true only if r2 == 27
 ```assembly
 loc_646:
 ldi     r24, 1
@@ -433,15 +433,15 @@ pop     r2
 ret
 ```
 In order to make this happen we need to understand what is happening on the inside of the loop
-but it would require to much time for us to do that, if we go back to the loop we can see that r2 changes just one time trought the whole loop
+but it would require too much time for us to do that, if we go back to the loop we can see that r2 changes just one time throughout the whole loop
 ```assembly
 call    sub_5B
 add     r2, r24
 adc     r3, r25
 ```
-Apparently the value of r24 depends from the result of call sub_5B.
+Apparently, the value of r24 depends on the result of call sub_5B.
 
-After entering inside sub_5B we will see that the only thing it does is jumping in a table where it only does subtractions
+After entering inside sub_5B we will see that the only thing it does is jump into a table where it only does subtractions
 ```assembly
 subi	r24, 0xC7	; 199
 sbci	r25, 0x27	; 39
@@ -575,9 +575,9 @@ sbci	r27, 0x96	; 150
 ret
 ```
 
-Going back to our loop we see that the values inside r24, r25, r26 and r27 are calculated based on our input, in particular from the value "i" and "i+1".
+Going back to our loop we see that the values inside r24, r25, r26, and r27 are calculated based on our input, in particular from the value "i" and "i+1".
 Knowing that: r24 will be added to r0, r0 has to be 27 and that the loop repets 27 times, we can assume that, in order to find the flag, r24 has to be 1, while 25, 26, 27 have to be 0.
-From this info we can write a script to bruteforce our input in order to make r24, r25, r26, r27 the right values in the moment of the subtruction.
+From this info, we can write a script to bruteforce our input in order to make r24, r25, r26, and r27 the right values in the moment of the subtraction.
 
 ```python
 import gdb
@@ -602,7 +602,7 @@ def firsts_two(char):
             
 
             #checking if r24 equals 1 and r25, r26, r27 are equal to 0
-            #we need r24 to be 1 because it will be add to r2 
+            #we need r24 to be 1 because it will be added to r2 
             res = check()
 
             if res == 4:
@@ -613,7 +613,7 @@ def firsts_two(char):
             else:
                 gdb.execute("monitor r")
                 res = 0
-                #res != 4 means that our input in not correct and we have to restart the binary
+                #res != 4 means that our input is not correct and we have to restart the binary
                 fill("")
     
 
@@ -663,7 +663,7 @@ def main():
     
     firsts = ""
     firsts = firsts_two(char)
-    #bruteforcing the firsts two characters of our buffer
+    #bruteforcing the first two characters of our buffer
     
     flag = full_flag(firsts, char)
     #we can keep bruteforcing one byte at a time to find the full flag

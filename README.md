@@ -10,7 +10,7 @@ Srdnlen CTF 2023 is the second edition of the online Jeopardy-style Capture-The-
   </a>
 </p>
 
-Srdnlen CTF 2023 is the first round of the second edition of [CyberCup](https://cybercup.it), an Italian CTF tournament.
+The competition marks the first round of the second edition of [CyberCup](https://cybercup.it), an Italian CTF tournament.
 
 - [CTFtime event](https://ctftime.org/event/2129/)
 
@@ -28,7 +28,7 @@ Srdnlen CTF 2023 is the first round of the second edition of [CyberCup](https://
 | foren      | [MemHunt - LEVEL 3](foren_MemHunt3)                        | Silvia Lucia Sanna <@slsanna>                                                    | :x:                |       |                                    |       |
 | foren      | [MemHunt - LEVEL 4](foren_MemHunt4)                        | Silvia Lucia Sanna <@slsanna>                                                    | :x:                |       |                                    |       |
 | osint      | [OSiMt](foren_OSINT)                                       | Alessandro Carlo Melis <@cvrlx>                                                  | :x:                |       |                                    |       |
-| network    | [Urban Odissey](foren_Urban Odyssey)                       | Aurora Arrus <@anauroranon>                                                      | :x:                |       |                                    |       |
+| network    | [Urban Odissey](foren_Urban%20Odyssey)                       | Aurora Arrus <@anauroranon>                                                      | :x:                |       |                                    |       |
 | misc       | [Audio misc challenge](foren_audioChall)                   | Luca Damiano <@lVitaD>                                                           | :x:                |       |                                    |       |
 | misc       | [stego WarmUp](foren_easySteg)                             | Luca Damiano <@lVitaD>                                                           | :x:                |       |                                    |       |
 | misc       | [ISAbel](foren_grandma)                                    | Alessandro Carlo Melis <@cvrlx>                                                  | :x:                |       |                                    |       |

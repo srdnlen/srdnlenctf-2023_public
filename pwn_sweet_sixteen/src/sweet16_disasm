@@ -1,0 +1,829 @@
+0000  59                pop     %cx
+0001  89 e3             mov     %sp,%bx
+0003  51                push    %cx
+0004  55                push    %bp
+0005  89 e5             mov     %sp,%bp
+0007  89 c8             mov     %cx,%ax
+0009  40                inc     %ax
+000a  d1 e0             shl     $1,%ax
+000c  01 d8             add     %bx,%ax
+000e  50                push    %ax
+000f  53                push    %bx
+0010  51                push    %cx
+0011  be 0e 00          mov     $0xe,%si
+0014  fd                std
+0015  ad                lodsw   
+0016  fc                cld
+0017  91                xchg    %ax,%cx
+0018  e3 04             jcxz    001e
+001a  ff d1             call    %cx
+001c  eb f6             jmp     0014
+001e  e8 04 00          call    0025 // 0025
+0021  50                push    %ax
+0022  e8 12 07          call    0737 // 0737
+0025  55                push    %bp
+0026  89 e5             mov     %sp,%bp
+0028  83 ec 28          sub     $0x28,%sp
+002b  b8 00 00          mov     $0x0,%ax
+002e  50                push    %ax
+002f  b8 02 00          mov     $0x2,%ax
+0032  50                push    %ax
+0033  b8 00 00          mov     $0x0,%ax
+0036  50                push    %ax
+0037  b8 30 00          mov     $0x30,%ax
+003a  50                push    %ax
+003b  16                push    %ss
+003c  1f                pop     %ds
+003d  e8 83 00          call    00c3 // 00c3
+0040  83 c4 08          add     $0x8,%sp
+0043  b8 00 00          mov     $0x0,%ax
+0046  50                push    %ax
+0047  b8 02 00          mov     $0x2,%ax
+004a  50                push    %ax
+004b  b8 00 00          mov     $0x0,%ax
+004e  50                push    %ax
+004f  b8 18 00          mov     $0x18,%ax
+0052  50                push    %ax
+0053  16                push    %ss
+0054  1f                pop     %ds
+0055  e8 6b 00          call    00c3 // 00c3
+0058  83 c4 08          add     $0x8,%sp
+005b  b8 04 00          mov     $0x4,%ax
+005e  50                push    %ax
+005f  16                push    %ss
+0060  1f                pop     %ds
+0061  e8 ed 00          call    0151 // 0151
+0064  83 c4 02          add     $0x2,%sp
+0067  b8 38 00          mov     $0x38,%ax
+006a  50                push    %ax
+006b  8d 46 d8          lea     -0x28(%bp),%ax
+006e  50                push    %ax
+006f  b8 00 00          mov     $0x0,%ax
+0072  50                push    %ax
+0073  16                push    %ss
+0074  1f                pop     %ds
+0075  e8 10 00          call    0088 // 0088
+0078  83 c4 06          add     $0x6,%sp
+007b  b8 00 00          mov     $0x0,%ax
+007e  89 c0             mov     %ax,%ax
+0080  89 c0             mov     %ax,%ax
+0082  89 ec             mov     %bp,%sp
+0084  5d                pop     %bp
+0085  16                push    %ss
+0086  1f                pop     %ds
+0087  c3                ret
+0088  b8 03 00          mov     $0x3,%ax
+008b  e9 11 00          jmp     009f // 009f
+008e  b8 01 00          mov     $0x1,%ax
+0091  e9 28 00          jmp     00bc // 00bc
+0094  89 e3             mov     %sp,%bx
+0096  8b 4f 04          mov     0x04(%bx),%cx
+0099  8b 5f 02          mov     0x02(%bx),%bx
+009c  e9 0e 00          jmp     00ad // 00ad
+009f  89 e3             mov     %sp,%bx
+00a1  8b 57 06          mov     0x06(%bx),%dx
+00a4  8b 4f 04          mov     0x04(%bx),%cx
+00a7  8b 5f 02          mov     0x02(%bx),%bx
+00aa  e9 00 00          jmp     00ad // 00ad
+00ad  cd 80             int     $0x80
+00af  85 c0             test    %ax,%ax
+00b1  79 08             jns     00bb
+00b3  f7 d8             neg     %ax
+00b5  a3 60 00          movw    %ax,(0060)
+00b8  b8 ff ff          mov     $0xffff,%ax
+00bb  c3                ret
+00bc  89 e3             mov     %sp,%bx
+00be  8b 5f 02          mov     0x02(%bx),%bx
+00c1  eb ea             jmp     00ad
+00c3  56                push    %si
+00c4  57                push    %di
+00c5  55                push    %bp
+00c6  89 e5             mov     %sp,%bp
+00c8  8b 7e 08          mov     0x08(%bp),%di
+00cb  8b 76 0a          mov     0x0a(%bp),%si
+00ce  57                push    %di
+00cf  e8 91 01          call    0263 // 0263
+00d2  83 c4 02          add     $0x2,%sp
+00d5  f6 45 0c 04       testb   $0x4,0x0c(%di)
+00d9  74 09             je      00e4
+00db  ff 75 06          push    0x06(%di)
+00de  e8 07 05          call    05e8 // 05e8
+00e1  83 c4 02          add     $0x2,%sp
+00e4  8b 45 0c          mov     0x0c(%di),%ax
+00e7  83 e0 f8          and     $0xfff8,%ax
+00ea  8d 55 0e          lea     0x0e(%di),%dx
+00ed  89 55 06          mov     %dx,0x06(%di)
+00f0  8d 55 16          lea     0x16(%di),%dx
+00f3  89 55 08          mov     %dx,0x08(%di)
+00f6  83 c8 02          or      $0x2,%ax
+00f9  89 45 0c          mov     %ax,0x0c(%di)
+00fc  83 7e 0c 01       cmpw    $0x1,0x0c(%bp)
+0100  77 37             ja      0139
+0102  83 7e 0e 00       cmpw    $0x0,0x0e(%bp)
+0106  75 05             jne     010d
+0108  c7 46 0e 00 04    movw    $0x400,0x0e(%bp)
+010d  85 f6             test    %si,%si
+010f  75 13             jne     0124
+0111  ff 76 0e          push    0x0e(%bp)
+0114  e8 cb 03          call    04e2 // 04e2
+0117  89 c6             mov     %ax,%si
+0119  83 c4 02          add     $0x2,%sp
+011c  85 c0             test    %ax,%ax
+011e  74 1d             je      013d
+0120  80 4d 0c 04       orb     $0x4,0x0c(%di)
+0124  89 75 06          mov     %si,0x06(%di)
+0127  03 76 0e          add     0x0e(%bp),%si
+012a  89 75 08          mov     %si,0x08(%di)
+012d  8b 45 0c          mov     0x0c(%di),%ax
+0130  83 e0 fc          and     $0xfffc,%ax
+0133  0b 46 0c          or      0x0c(%bp),%ax
+0136  89 45 0c          mov     %ax,0x0c(%di)
+0139  31 c0             xor     %ax,%ax
+013b  eb 03             jmp     0140
+013d  b8 ff ff          mov     $0xffff,%ax
+0140  8b 55 06          mov     0x06(%di),%dx
+0143  89 55 04          mov     %dx,0x04(%di)
+0146  89 55 02          mov     %dx,0x02(%di)
+0149  89 15             mov     %dx,(%di)
+014b  89 ec             mov     %bp,%sp
+014d  5d                pop     %bp
+014e  5f                pop     %di
+014f  5e                pop     %si
+0150  c3                ret
+0151  56                push    %si
+0152  57                push    %di
+0153  55                push    %bp
+0154  89 e5             mov     %sp,%bp
+0156  be 18 00          mov     $0x18,%si
+0159  56                push    %si
+015a  ff 76 08          push    0x08(%bp)
+015d  e8 38 00          call    0198 // 0198
+0160  83 c4 04          add     $0x4,%sp
+0163  83 f8 ff          cmp     $0xffff,%ax
+0166  75 09             jne     0171
+0168  b8 ff ff          mov     $0xffff,%ax
+016b  89 ec             mov     %bp,%sp
+016d  5d                pop     %bp
+016e  5f                pop     %di
+016f  5e                pop     %si
+0170  c3                ret
+0171  97                xchg    %ax,%di
+0172  8b 1c             mov     (%si),%bx
+0174  3b 5c 04          cmp     0x04(%si),%bx
+0177  72 15             jb      018e
+0179  56                push    %si
+017a  b8 0a 00          mov     $0xa,%ax
+017d  50                push    %ax
+017e  e8 56 00          call    01d7 // 01d7
+0181  83 c4 04          add     $0x4,%sp
+0184  83 f8 ff          cmp     $0xffff,%ax
+0187  74 df             je      0168
+0189  8d 45 01          lea     0x01(%di),%ax
+018c  eb dd             jmp     016b
+018e  8d 47 01          lea     0x01(%bx),%ax
+0191  89 04             mov     %ax,(%si)
+0193  c6 07 0a          movb    $0xa,(%bx)
+0196  eb f1             jmp     0189
+0198  56                push    %si
+0199  57                push    %di
+019a  55                push    %bp
+019b  89 e5             mov     %sp,%bp
+019d  8b 7e 0a          mov     0x0a(%bp),%di
+01a0  8b 76 08          mov     0x08(%bp),%si
+01a3  89 f0             mov     %si,%ax
+01a5  2b 46 08          sub     0x08(%bp),%ax
+01a8  8a 14             mov     (%si),%dl
+01aa  84 d2             test    %dl,%dl
+01ac  74 17             je      01c5
+01ae  8b 1d             mov     (%di),%bx
+01b0  3b 5d 04          cmp     0x04(%di),%bx
+01b3  72 16             jb      01cb
+01b5  57                push    %di
+01b6  88 d0             mov     %dl,%al
+01b8  98                cbtw
+01b9  50                push    %ax
+01ba  e8 1a 00          call    01d7 // 01d7
+01bd  83 c4 04          add     $0x4,%sp
+01c0  83 f8 ff          cmp     $0xffff,%ax
+01c3  75 0f             jne     01d4
+01c5  89 ec             mov     %bp,%sp
+01c7  5d                pop     %bp
+01c8  5f                pop     %di
+01c9  5e                pop     %si
+01ca  c3                ret
+01cb  8d 47 01          lea     0x01(%bx),%ax
+01ce  89 05             mov     %ax,(%di)
+01d0  8a 04             mov     (%si),%al
+01d2  88 07             mov     %al,(%bx)
+01d4  46                inc     %si
+01d5  eb cc             jmp     01a3
+01d7  56                push    %si
+01d8  57                push    %di
+01d9  55                push    %bp
+01da  89 e5             mov     %sp,%bp
+01dc  8b 76 0a          mov     0x0a(%bp),%si
+01df  f6 44 0c 40       testb   $0x40,0x0c(%si)
+01e3  75 16             jne     01fb
+01e5  8b 7c 0c          mov     0x0c(%si),%di
+01e8  89 f8             mov     %di,%ax
+01ea  25 20 03          andw    $0x320,%ax
+01ed  83 f8 20          cmp     $0x20,%ax
+01f0  74 16             je      0208
+01f2  b8 ff ff          mov     $0xffff,%ax
+01f5  89 ec             mov     %bp,%sp
+01f7  5d                pop     %bp
+01f8  5f                pop     %di
+01f9  5e                pop     %si
+01fa  c3                ret
+01fb  56                push    %si
+01fc  e8 64 00          call    0263 // 0263
+01ff  83 c4 02          add     $0x2,%sp
+0202  85 c0             test    %ax,%ax
+0204  74 df             je      01e5
+0206  eb ea             jmp     01f2
+0208  8b 04             mov     (%si),%ax
+020a  3b 44 08          cmp     0x08(%si),%ax
+020d  73 2d             jae     023c
+020f  8b 1c             mov     (%si),%bx
+0211  8d 47 01          lea     0x01(%bx),%ax
+0214  89 04             mov     %ax,(%si)
+0216  8a 46 08          mov     0x08(%bp),%al
+0219  88 07             mov     %al,(%bx)
+021b  80 4c 0c 80       orb     $0x80,0x0c(%si)
+021f  83 7e 08 0a       cmpw    $0xa,0x08(%bp)
+0223  75 06             jne     022b
+0225  f7 c7 01 00       test    $0x1,%di
+0229  75 1e             jne     0249
+022b  f7 c7 02 00       test    $0x2,%di
+022f  75 18             jne     0249
+0231  f7 c7 03 00       test    $0x3,%di
+0235  75 1f             jne     0256
+0237  8b 44 08          mov     0x08(%si),%ax
+023a  eb 1d             jmp     0259
+023c  56                push    %si
+023d  e8 23 00          call    0263 // 0263
+0240  83 c4 02          add     $0x2,%sp
+0243  85 c0             test    %ax,%ax
+0245  74 c8             je      020f
+0247  eb a9             jmp     01f2
+0249  56                push    %si
+024a  e8 16 00          call    0263 // 0263
+024d  83 c4 02          add     $0x2,%sp
+0250  85 c0             test    %ax,%ax
+0252  74 dd             je      0231
+0254  eb 9c             jmp     01f2
+0256  8b 44 06          mov     0x06(%si),%ax
+0259  89 44 04          mov     %ax,0x04(%si)
+025c  8a 46 08          mov     0x08(%bp),%al
+025f  30 e4             xor     %ah,%ah
+0261  eb 92             jmp     01f5
+0263  56                push    %si
+0264  57                push    %di
+0265  55                push    %bp
+0266  89 e5             mov     %sp,%bp
+0268  1e                push    %ds
+0269  8b 76 08          mov     0x08(%bp),%si
+026c  85 f6             test    %si,%si
+026e  75 50             jne     02c0
+0270  b8 30 00          mov     $0x30,%ax
+0273  50                push    %ax
+0274  e8 ec ff          call    0263 // 0263
+0277  83 c4 02          add     $0x2,%sp
+027a  85 c0             test    %ax,%ax
+027c  74 05             je      0283
+027e  bf ff ff          mov     $0xffff,%di
+0281  eb 26             jmp     02a9
+0283  b8 18 00          mov     $0x18,%ax
+0286  50                push    %ax
+0287  e8 d9 ff          call    0263 // 0263
+028a  83 c4 02          add     $0x2,%sp
+028d  85 c0             test    %ax,%ax
+028f  75 ed             jne     027e
+0291  b8 48 00          mov     $0x48,%ax
+0294  50                push    %ax
+0295  e8 cb ff          call    0263 // 0263
+0298  89 c7             mov     %ax,%di
+029a  83 c4 02          add     $0x2,%sp
+029d  85 c0             test    %ax,%ax
+029f  75 dd             jne     027e
+02a1  8b 36 62 08       movw    (0862),%si
+02a5  85 f6             test    %si,%si
+02a7  75 07             jne     02b0
+02a9  97                xchg    %ax,%di
+02aa  89 ec             mov     %bp,%sp
+02ac  5d                pop     %bp
+02ad  5f                pop     %di
+02ae  5e                pop     %si
+02af  c3                ret
+02b0  56                push    %si
+02b1  e8 af ff          call    0263 // 0263
+02b4  83 c4 02          add     $0x2,%sp
+02b7  85 c0             test    %ax,%ax
+02b9  75 c3             jne     027e
+02bb  8b 74 16          mov     0x16(%si),%si
+02be  eb e5             jmp     02a5
+02c0  8b 4c 0a          mov     0x0a(%si),%cx
+02c3  85 c9             test    %cx,%cx
+02c5  8b 44 0c          mov     0x0c(%si),%ax
+02c8  7d 08             jge     02d2
+02ca  80 cc 02          or      $0x2,%ah
+02cd  89 44 0c          mov     %ax,0x0c(%si)
+02d0  eb ac             jmp     027e
+02d2  89 c7             mov     %ax,%di
+02d4  81 e7 80 00       and     $0x80,%di
+02d8  74 3e             je      0318
+02da  8b 54 06          mov     0x06(%si),%dx
+02dd  8b 3c             mov     (%si),%di
+02df  29 d7             sub     %dx,%di
+02e1  75 14             jne     02f7
+02e3  31 ff             xor     %di,%di
+02e5  81 64 0c 3f fa    andw    $0xfa3f,0x0c(%si)
+02ea  8b 44 06          mov     0x06(%si),%ax
+02ed  89 04             mov     %ax,(%si)
+02ef  89 44 04          mov     %ax,0x04(%si)
+02f2  89 44 02          mov     %ax,0x02(%si)
+02f5  eb b2             jmp     02a9
+02f7  57                push    %di
+02f8  52                push    %dx
+02f9  89 56 fe          mov     %dx,-0x02(%bp)
+02fc  ff 74 0a          push    0x0a(%si)
+02ff  e8 da 03          call    06dc // 06dc
+0302  83 c4 06          add     $0x6,%sp
+0305  85 c0             test    %ax,%ax
+0307  8b 56 fe          mov     -0x02(%bp),%dx
+030a  7e 2b             jle     0337
+030c  01 c2             add     %ax,%dx
+030e  29 c7             sub     %ax,%di
+0310  85 ff             test    %di,%di
+0312  7f e3             jg      02f7
+0314  74 cd             je      02e3
+0316  eb 2f             jmp     0347
+0318  a8 40             testb   $0x40,%al
+031a  74 c7             je      02e3
+031c  8b 44 02          mov     0x02(%si),%ax
+031f  2b 04             sub     (%si),%ax
+0321  85 c0             test    %ax,%ax
+0323  7e be             jle     02e3
+0325  ba 01 00          mov     $0x1,%dx
+0328  52                push    %dx
+0329  f7 d8             neg     %ax
+032b  99                cwtd
+032c  52                push    %dx
+032d  50                push    %ax
+032e  51                push    %cx
+032f  e8 b0 03          call    06e2 // 06e2
+0332  83 c4 08          add     $0x8,%sp
+0335  eb ae             jmp     02e5
+0337  85 ff             test    %di,%di
+0339  7e 0c             jle     0347
+033b  83 f8 ff          cmp     $0xffff,%ax
+033e  75 07             jne     0347
+0340  83 3e 60 00 04    cmpw    $0x4,(0060)
+0345  74 b0             je      02f7
+0347  80 4c 0d 02       orb     $0x2,0x0d(%si)
+034b  bf ff ff          mov     $0xffff,%di
+034e  eb 95             jmp     02e5
+0350  56                push    %si
+0351  b8 18 00          mov     $0x18,%ax
+0354  50                push    %ax
+0355  e8 0b ff          call    0263 // 0263
+0358  b8 48 00          mov     $0x48,%ax
+035b  50                push    %ax
+035c  e8 04 ff          call    0263 // 0263
+035f  8b 36 62 08       movw    (0862),%si
+0363  83 c4 04          add     $0x4,%sp
+0366  85 f6             test    %si,%si
+0368  75 02             jne     036c
+036a  5e                pop     %si
+036b  c3                ret
+036c  56                push    %si
+036d  e8 f3 fe          call    0263 // 0263
+0370  ff 74 0a          push    0x0a(%si)
+0373  e8 60 03          call    06d6 // 06d6
+0376  c7 44 0a ff ff    movw    $0xffff,0x0a(%si)
+037b  8b 74 16          mov     0x16(%si),%si
+037e  eb e3             jmp     0363
+0380  b8 01 00          mov     $0x1,%ax
+0383  50                push    %ax
+0384  e8 fe 02          call    0685 // 0685
+0387  83 c4 02          add     $0x2,%sp
+038a  85 c0             test    %ax,%ax
+038c  74 05             je      0393
+038e  80 0e 24 00 01    orb     $0x1,(0024)
+0393  c3                ret
+0394  56                push    %si
+0395  57                push    %di
+0396  55                push    %bp
+0397  89 e5             mov     %sp,%bp
+0399  8b 76 08          mov     0x08(%bp),%si
+039c  8b 16 64 08       movw    (0864),%dx
+03a0  85 d2             test    %dx,%dx
+03a2  75 0b             jne     03af
+03a4  89 36 64 08       movw    %si,(0864)
+03a8  89 74 02          mov     %si,0x02(%si)
+03ab  5d                pop     %bp
+03ac  5f                pop     %di
+03ad  5e                pop     %si
+03ae  c3                ret
+03af  89 d7             mov     %dx,%di
+03b1  b9 00 01          mov     $0x100,%cx
+03b4  e9 8c 00          jmp     0443 // 0443
+03b7  89 44 02          mov     %ax,0x02(%si)
+03ba  89 75 02          mov     %si,0x02(%di)
+03bd  eb ec             jmp     03ab
+03bf  39 c6             cmp     %ax,%si
+03c1  73 77             jae     043a
+03c3  84 c9             test    %cl,%cl
+03c5  74 04             je      03cb
+03c7  89 16 64 08       movw    %dx,(0864)
+03cb  89 44 02          mov     %ax,0x02(%si)
+03ce  89 75 02          mov     %si,0x02(%di)
+03d1  8b 04             mov     (%si),%ax
+03d3  89 c3             mov     %ax,%bx
+03d5  d1 e3             shl     $1,%bx
+03d7  8d 10             lea     (%bx,%si),%dx
+03d9  3b 54 02          cmp     0x02(%si),%dx
+03dc  75 0a             jne     03e8
+03de  03 00             add     (%bx,%si),%ax
+03e0  89 04             mov     %ax,(%si)
+03e2  8b 40 02          mov     0x02(%bx,%si),%ax
+03e5  89 44 02          mov     %ax,0x02(%si)
+03e8  8b 05             mov     (%di),%ax
+03ea  89 c2             mov     %ax,%dx
+03ec  d1 e2             shl     $1,%dx
+03ee  01 fa             add     %di,%dx
+03f0  39 d6             cmp     %dx,%si
+03f2  75 0a             jne     03fe
+03f4  03 04             add     (%si),%ax
+03f6  89 05             mov     %ax,(%di)
+03f8  8b 44 02          mov     0x02(%si),%ax
+03fb  89 45 02          mov     %ax,0x02(%di)
+03fe  89 3e 64 08       movw    %di,(0864)
+0402  eb a7             jmp     03ab
+0404  76 34             jbe     043a
+0406  39 c6             cmp     %ax,%si
+0408  73 30             jae     043a
+040a  39 c7             cmp     %ax,%di
+040c  72 2c             jb      043a
+040e  89 44 02          mov     %ax,0x02(%si)
+0411  89 75 02          mov     %si,0x02(%di)
+0414  89 3e 64 08       movw    %di,(0864)
+0418  8b 04             mov     (%si),%ax
+041a  89 c3             mov     %ax,%bx
+041c  d1 e3             shl     $1,%bx
+041e  8d 10             lea     (%bx,%si),%dx
+0420  3b 54 02          cmp     0x02(%si),%dx
+0423  75 86             jne     03ab
+0425  39 d7             cmp     %dx,%di
+0427  75 04             jne     042d
+0429  89 36 64 08       movw    %si,(0864)
+042d  03 00             add     (%bx,%si),%ax
+042f  89 04             mov     %ax,(%si)
+0431  8b 40 02          mov     0x02(%bx,%si),%ax
+0434  89 44 02          mov     %ax,0x02(%si)
+0437  e9 71 ff          jmp     03ab // 03ab
+043a  89 fa             mov     %di,%dx
+043c  88 e9             mov     %ch,%cl
+043e  39 c7             cmp     %ax,%di
+0440  74 bc             je      03fe
+0442  97                xchg    %ax,%di
+0443  39 f7             cmp     %si,%di
+0445  8b 45 02          mov     0x02(%di),%ax
+0448  73 ba             jae     0404
+044a  39 c7             cmp     %ax,%di
+044c  73 03             jae     0451
+044e  e9 6e ff          jmp     03bf // 03bf
+0451  84 c9             test    %cl,%cl
+0453  74 04             je      0459
+0455  89 16 64 08       movw    %dx,(0864)
+0459  8b 15             mov     (%di),%dx
+045b  89 d1             mov     %dx,%cx
+045d  d1 e1             shl     $1,%cx
+045f  01 f9             add     %di,%cx
+0461  39 ce             cmp     %cx,%si
+0463  74 03             je      0468
+0465  e9 4f ff          jmp     03b7 // 03b7
+0468  03 14             add     (%si),%dx
+046a  89 15             mov     %dx,(%di)
+046c  e9 3c ff          jmp     03ab // 03ab
+046f  56                push    %si
+0470  57                push    %di
+0471  89 e3             mov     %sp,%bx
+0473  8b 57 06          mov     0x06(%bx),%dx
+0476  8b 1e 64 08       movw    (0864),%bx
+047a  89 de             mov     %bx,%si
+047c  85 db             test    %bx,%bx
+047e  74 35             je      04b5
+0480  8b 77 02          mov     0x02(%bx),%si
+0483  89 df             mov     %bx,%di
+0485  39 14             cmp     %dx,(%si)
+0487  73 0a             jae     0493
+0489  8b 44 02          mov     0x02(%si),%ax
+048c  89 f7             mov     %si,%di
+048e  39 de             cmp     %bx,%si
+0490  96                xchg    %ax,%si
+0491  75 f2             jne     0485
+0493  8b 04             mov     (%si),%ax
+0495  39 c2             cmp     %ax,%dx
+0497  77 45             ja      04de
+0499  89 d1             mov     %dx,%cx
+049b  83 c1 02          add     $0x2,%cx
+049e  39 c8             cmp     %cx,%ax
+04a0  73 17             jae     04b9
+04a2  8b 44 02          mov     0x02(%si),%ax
+04a5  89 45 02          mov     %ax,0x02(%di)
+04a8  a3 64 08          movw    %ax,(0864)
+04ab  39 c6             cmp     %ax,%si
+04ad  75 06             jne     04b5
+04af  c7 06 64 08 00 00 movw    $0x0,(0864)
+04b5  96                xchg    %ax,%si
+04b6  5f                pop     %di
+04b7  5e                pop     %si
+04b8  c3                ret
+04b9  89 d3             mov     %dx,%bx
+04bb  d1 e3             shl     $1,%bx
+04bd  8d 08             lea     (%bx,%si),%cx
+04bf  89 4d 02          mov     %cx,0x02(%di)
+04c2  89 3e 64 08       movw    %di,(0864)
+04c6  8b 04             mov     (%si),%ax
+04c8  29 d0             sub     %dx,%ax
+04ca  89 00             mov     %ax,(%bx,%si)
+04cc  8b 44 02          mov     0x02(%si),%ax
+04cf  89 40 02          mov     %ax,0x02(%bx,%si)
+04d2  89 14             mov     %dx,(%si)
+04d4  39 fe             cmp     %di,%si
+04d6  75 dd             jne     04b5
+04d8  89 0e 64 08       movw    %cx,(0864)
+04dc  eb d7             jmp     04b5
+04de  31 f6             xor     %si,%si
+04e0  eb d3             jmp     04b5
+04e2  56                push    %si
+04e3  57                push    %di
+04e4  55                push    %bp
+04e5  89 e5             mov     %sp,%bp
+04e7  1e                push    %ds
+04e8  1e                push    %ds
+04e9  83 7e 08 00       cmpw    $0x0,0x08(%bp)
+04ed  75 08             jne     04f7
+04ef  31 c0             xor     %ax,%ax
+04f1  89 ec             mov     %bp,%sp
+04f3  5d                pop     %bp
+04f4  5f                pop     %di
+04f5  5e                pop     %si
+04f6  c3                ret
+04f7  8b 46 08          mov     0x08(%bp),%ax
+04fa  83 c0 03          add     $0x3,%ax
+04fd  d1 e8             shr     $1,%ax
+04ff  89 46 fe          mov     %ax,-0x02(%bp)
+0502  83 3e 66 08 00    cmpw    $0x0,(0866)
+0507  75 60             jne     0569
+0509  ff 76 fe          push    -0x02(%bp)
+050c  e8 60 ff          call    046f // 046f
+050f  83 c4 02          add     $0x2,%sp
+0512  85 c0             test    %ax,%ax
+0514  75 35             jne     054b
+0516  8b 7e fe          mov     -0x02(%bp),%di
+0519  81 c7 ff 01       add     $0x1ff,%di
+051d  81 e7 00 fe       and     $0xfe00,%di
+0521  81 c7 ff 7f       add     $0x7fff,%di
+0525  89 fe             mov     %di,%si
+0527  d1 e6             shl     $1,%si
+0529  56                push    %si
+052a  e8 ff 00          call    062c // 062c
+052d  83 c4 02          add     $0x2,%sp
+0530  85 c0             test    %ax,%ax
+0532  74 7e             je      05b2
+0534  83 c0 fe          add     $0xfffe,%ax
+0537  50                push    %ax
+0538  e8 59 fe          call    0394 // 0394
+053b  83 c4 02          add     $0x2,%sp
+053e  ff 76 fe          push    -0x02(%bp)
+0541  e8 2b ff          call    046f // 046f
+0544  83 c4 02          add     $0x2,%sp
+0547  85 c0             test    %ax,%ax
+0549  74 a4             je      04ef
+054b  83 c0 02          add     $0x2,%ax
+054e  eb a1             jmp     04f1
+0550  8b 45 02          mov     0x02(%di),%ax
+0553  a3 66 08          movw    %ax,(0866)
+0556  8b 46 fe          mov     -0x02(%bp),%ax
+0559  3b 05             cmp     (%di),%ax
+055b  75 05             jne     0562
+055d  8d 45 02          lea     0x02(%di),%ax
+0560  eb 8f             jmp     04f1
+0562  57                push    %di
+0563  e8 2e fe          call    0394 // 0394
+0566  83 c4 02          add     $0x2,%sp
+0569  8b 3e 66 08       movw    (0866),%di
+056d  85 ff             test    %di,%di
+056f  75 df             jne     0550
+0571  8b 1e 64 08       movw    (0864),%bx
+0575  8b 77 02          mov     0x02(%bx),%si
+0578  8b 14             mov     (%si),%dx
+057a  d1 e2             shl     $1,%dx
+057c  01 f2             add     %si,%dx
+057e  89 56 fc          mov     %dx,-0x04(%bp)
+0581  57                push    %di
+0582  e8 85 01          call    070a // 070a
+0585  83 c4 02          add     $0x2,%sp
+0588  8b 56 fc          mov     -0x04(%bp),%dx
+058b  39 c2             cmp     %ax,%dx
+058d  74 03             je      0592
+058f  e9 77 ff          jmp     0509 // 0509
+0592  8b 44 02          mov     0x02(%si),%ax
+0595  8b 1e 64 08       movw    (0864),%bx
+0599  89 47 02          mov     %ax,0x02(%bx)
+059c  3b 74 02          cmp     0x02(%si),%si
+059f  75 04             jne     05a5
+05a1  89 3e 64 08       movw    %di,(0864)
+05a5  83 c6 02          add     $0x2,%si
+05a8  56                push    %si
+05a9  e8 3c 00          call    05e8 // 05e8
+05ac  83 c4 02          add     $0x2,%sp
+05af  e9 57 ff          jmp     0509 // 0509
+05b2  81 e7 ff 7f       and     $0x7fff,%di
+05b6  81 ff 01 01       cmp     $0x101,%di
+05ba  72 82             jb      053e
+05bc  85 f6             test    %si,%si
+05be  75 03             jne     05c3
+05c0  e9 7b ff          jmp     053e // 053e
+05c3  57                push    %di
+05c4  e8 65 00          call    062c // 062c
+05c7  83 c4 02          add     $0x2,%sp
+05ca  85 c0             test    %ax,%ax
+05cc  74 16             je      05e4
+05ce  39 f7             cmp     %si,%di
+05d0  77 0e             ja      05e0
+05d2  29 fe             sub     %di,%si
+05d4  83 c0 fe          add     $0xfffe,%ax
+05d7  50                push    %ax
+05d8  e8 b9 fd          call    0394 // 0394
+05db  83 c4 02          add     $0x2,%sp
+05de  eb d6             jmp     05b6
+05e0  31 f6             xor     %si,%si
+05e2  eb f0             jmp     05d4
+05e4  d1 ef             shr     $1,%di
+05e6  eb ce             jmp     05b6
+05e8  56                push    %si
+05e9  57                push    %di
+05ea  55                push    %bp
+05eb  89 e5             mov     %sp,%bp
+05ed  8b 76 08          mov     0x08(%bp),%si
+05f0  85 f6             test    %si,%si
+05f2  74 2f             je      0623
+05f4  8d 7c fe          lea     -0x02(%si),%di
+05f7  31 c0             xor     %ax,%ax
+05f9  50                push    %ax
+05fa  e8 0d 01          call    070a // 070a
+05fd  8b 54 fe          mov     -0x02(%si),%dx
+0600  d1 e2             shl     $1,%dx
+0602  89 f9             mov     %di,%cx
+0604  01 d1             add     %dx,%cx
+0606  83 c4 02          add     $0x2,%sp
+0609  39 c8             cmp     %cx,%ax
+060b  75 0d             jne     061a
+060d  29 d0             sub     %dx,%ax
+060f  89 46 08          mov     %ax,0x08(%bp)
+0612  89 ec             mov     %bp,%sp
+0614  5d                pop     %bp
+0615  5f                pop     %di
+0616  5e                pop     %si
+0617  e9 0f 00          jmp     0629 // 0629
+061a  a1 66 08          movw    (0866),%ax
+061d  89 04             mov     %ax,(%si)
+061f  89 3e 66 08       movw    %di,(0866)
+0623  89 ec             mov     %bp,%sp
+0625  5d                pop     %bp
+0626  5f                pop     %di
+0627  5e                pop     %si
+0628  c3                ret
+0629  e9 a4 00          jmp     06d0 // 06d0
+062c  56                push    %si
+062d  55                push    %bp
+062e  89 e5             mov     %sp,%bp
+0630  31 c0             xor     %ax,%ax
+0632  50                push    %ax
+0633  e8 d4 00          call    070a // 070a
+0636  83 c4 02          add     $0x2,%sp
+0639  a8 01             testb   $0x1,%al
+063b  74 0a             je      0647
+063d  b8 03 00          mov     $0x3,%ax
+0640  50                push    %ax
+0641  e8 c6 00          call    070a // 070a
+0644  83 c4 02          add     $0x2,%sp
+0647  83 7e 06 00       cmpw    $0x0,0x06(%bp)
+064b  75 07             jne     0654
+064d  31 c0             xor     %ax,%ax
+064f  89 ec             mov     %bp,%sp
+0651  5d                pop     %bp
+0652  5e                pop     %si
+0653  c3                ret
+0654  81 7e 06 f9 7f    cmpw    $0x7ff9,0x06(%bp)
+0659  76 08             jbe     0663
+065b  c7 06 60 00 0c 00 movw    $0xc,(0060)
+0661  eb ea             jmp     064d
+0663  8b 46 06          mov     0x06(%bp),%ax
+0666  83 c0 03          add     $0x3,%ax
+0669  89 c6             mov     %ax,%si
+066b  d1 ee             shr     $1,%si
+066d  83 e0 fe          and     $0xfffe,%ax
+0670  50                push    %ax
+0671  e8 96 00          call    070a // 070a
+0674  89 c3             mov     %ax,%bx
+0676  83 c4 02          add     $0x2,%sp
+0679  83 f8 ff          cmp     $0xffff,%ax
+067c  74 cf             je      064d
+067e  89 37             mov     %si,(%bx)
+0680  8d 47 02          lea     0x02(%bx),%ax
+0683  eb ca             jmp     064f
+0685  56                push    %si
+0686  57                push    %di
+0687  55                push    %bp
+0688  89 e5             mov     %sp,%bp
+068a  83 ec 22          sub     $0x22,%sp
+068d  8b 76 08          mov     0x08(%bp),%si
+0690  8b 3e 60 00       movw    (0060),%di
+0694  8d 46 de          lea     -0x22(%bp),%ax
+0697  50                push    %ax
+0698  b8 01 54          mov     $0x5401,%ax
+069b  50                push    %ax
+069c  56                push    %si
+069d  e8 2a 00          call    06ca // 06ca
+06a0  83 c4 06          add     $0x6,%sp
+06a3  83 f8 01          cmp     $0x1,%ax
+06a6  19 d2             sbb     %dx,%dx
+06a8  f7 da             neg     %dx
+06aa  85 c0             test    %ax,%ax
+06ac  74 11             je      06bf
+06ae  83 3e 60 00 26    cmpw    $0x26,(0060)
+06b3  75 0a             jne     06bf
+06b5  ba 01 00          mov     $0x1,%dx
+06b8  83 fe 02          cmp     $0x2,%si
+06bb  7e 02             jle     06bf
+06bd  31 d2             xor     %dx,%dx
+06bf  89 3e 60 00       movw    %di,(0060)
+06c3  92                xchg    %ax,%dx
+06c4  89 ec             mov     %bp,%sp
+06c6  5d                pop     %bp
+06c7  5f                pop     %di
+06c8  5e                pop     %si
+06c9  c3                ret
+06ca  b8 36 00          mov     $0x36,%ax
+06cd  e9 cf f9          jmp     009f // 009f
+06d0  b8 11 00          mov     $0x11,%ax
+06d3  e9 e6 f9          jmp     00bc // 00bc
+06d6  b8 06 00          mov     $0x6,%ax
+06d9  e9 e0 f9          jmp     00bc // 00bc
+06dc  b8 04 00          mov     $0x4,%ax
+06df  e9 bd f9          jmp     009f // 009f
+06e2  55                push    %bp
+06e3  89 e5             mov     %sp,%bp
+06e5  ff 76 0a          push    0x0a(%bp)
+06e8  8d 46 06          lea     0x06(%bp),%ax
+06eb  50                push    %ax
+06ec  ff 76 04          push    0x04(%bp)
+06ef  e8 3f 00          call    0731 // 0731
+06f2  83 c4 06          add     $0x6,%sp
+06f5  85 c0             test    %ax,%ax
+06f7  7c 0a             jl      0703
+06f9  8b 46 06          mov     0x06(%bp),%ax
+06fc  8b 56 08          mov     0x08(%bp),%dx
+06ff  89 ec             mov     %bp,%sp
+0701  5d                pop     %bp
+0702  c3                ret
+0703  b8 ff ff          mov     $0xffff,%ax
+0706  89 c2             mov     %ax,%dx
+0708  eb f5             jmp     06ff
+070a  55                push    %bp
+070b  89 e5             mov     %sp,%bp
+070d  1e                push    %ds
+070e  8d 46 fe          lea     -0x02(%bp),%ax
+0711  50                push    %ax
+0712  ff 76 04          push    0x04(%bp)
+0715  e8 13 00          call    072b // 072b
+0718  83 c4 04          add     $0x4,%sp
+071b  85 c0             test    %ax,%ax
+071d  75 07             jne     0726
+071f  8b 46 fe          mov     -0x02(%bp),%ax
+0722  89 ec             mov     %bp,%sp
+0724  5d                pop     %bp
+0725  c3                ret
+0726  b8 ff ff          mov     $0xffff,%ax
+0729  eb f7             jmp     0722
+072b  b8 45 00          mov     $0x45,%ax
+072e  e9 63 f9          jmp     0094 // 0094
+0731  b8 13 00          mov     $0x13,%ax
+0734  e9 68 f9          jmp     009f // 009f
+0737  be 14 00          mov     $0x14,%si
+073a  ad                lodsw   
+073b  91                xchg    %ax,%cx
+073c  e3 04             jcxz    0742
+073e  ff d1             call    %cx
+0740  eb f8             jmp     073a
+0742  e9 49 f9          jmp     008e // 008e
+0745  00 00             add     %al,(%bx,%si)
+0747  00 00             add     %al,(%bx,%si)
+0749  00 00             add     %al,(%bx,%si)
+074b  00 00             add     %al,(%bx,%si)
+074d  00 00             add     %al,(%bx,%si)
+074f  00 00             add     %al,(%bx,%si)

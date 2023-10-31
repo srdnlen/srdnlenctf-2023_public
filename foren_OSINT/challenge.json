@@ -1,0 +1,30 @@
+{
+  "title": "OSiMt",
+  "description": "I know i will be lost in germany, I only know that I'm in one of the top 10 cities by population. Can u please tell me the name of the street where I'm on?\n\nAuthor: [@cvrlx](https://github.com/cvrlx)",
+  "authors": [
+    "Alessandro Carlo Melis <@cvrlx>"
+  ],
+  "tags": [
+    "osint"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{Rendsburger_Platz\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "findme.PNG",
+      "type": "upload",
+      "path": "./attachments/findme.PNG",
+      "dynamic": false
+    }
+  ],
+  "hints": []
+}

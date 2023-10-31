@@ -1,0 +1,31 @@
+{
+  "title": "SrdnAuth",
+  "description": "Do you know how to decompile android apps?\n\nThis is a fully local challenge.\n\nAuthor: @ex0g3n",
+  "authors": [
+    "Daniele Pintore <@ex0g3n>"
+  ],
+  "tags": [
+    "android",
+    "native"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{w3_l0v3_4ndr01d_4pp_1n_d0t_n3t\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "SrdnAuth.apk",
+      "type": "upload",
+      "path": "./attachments/SrdnAuth.apk",
+      "dynamic": false
+    }
+  ],
+  "hints": []
+}

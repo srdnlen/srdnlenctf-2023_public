@@ -1,0 +1,57 @@
+<form id="login-form" style="width: 40%; margin-left: 30%">
+    <h1 class="h3 mb-3 fw-normal">Login</h1>
+  <div class="form-group">
+    <label for="login-username">Username</label>
+    <input type="text" class="form-control" id="login-username" aria-describedby="emailHelp" placeholder="Enter username">
+  </div>
+  <div class="form-group">
+    <label for="login-password">Password</label>
+    <input type="password" class="form-control" id="login-password" placeholder="Password">
+  </div>
+    <input id="login-submit" class="w-100 btn btn-lg btn-primary" type="submit" value="Login"></input>
+
+    <br/>
+    <br/>
+    <div id="response" class="text-center small py-1" style="border-radius: 4px; display: none"></div>
+</form>
+
+<style>
+      input {
+        width: 90%;
+        padding: 10px;
+        margin: 5px;
+        outline: none;
+      }
+      input[type="submit"] {
+        width: 150px;
+      }
+      input::placeholder {
+        color: #000000;
+        opacity: 1;
+      }
+      input:placeholder-shown {
+        border: 1px solid #22a0ee;
+      }
+</style>
+
+<script>
+    document.getElementById('login-form').onsubmit = async (e) => {
+        e.preventDefault()
+        const username = document.getElementById('login-username').value
+        const password = document.getElementById('login-password').value
+
+        const req = await fetch('/user-login', {
+            method: 'POST',
+            body: JSON.stringify({ username, password }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        const res = await req.json()
+
+        if(res.success) {
+            window.location.href = '/'
+            return                
+        }
+    }
+</script>

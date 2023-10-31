@@ -1,0 +1,5 @@
+pyelftools==0.29
+pwntools==4.9.0
+pycryptodome==3.19.0
+randcrack==0.2.0
+tqdm==4.64.1

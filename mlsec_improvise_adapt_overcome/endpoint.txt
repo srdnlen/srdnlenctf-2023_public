@@ -1,0 +1,1 @@
+http,adapt.challs.srdnlen.it,80

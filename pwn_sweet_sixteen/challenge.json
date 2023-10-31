@@ -1,0 +1,41 @@
+{
+  "title": "Sweet Sixteen",
+  "description": "I'd do anything\n\nFor my sweet sixteen\n\nI'd do anything\n\nFor that runaway child\n\n(Billy Idol, Sweet Sixteen, 1986)\n\nThis challenge is a small love letter to binary exploitation. Enjoy it!\n\nThe service is online at at IP:PORT",
+  "authors": [
+    "Davide Maiorca <@astralXploit0>"
+  ],
+  "tags": [
+    "pwn"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{m0d3rn_xpl01t4t10n_ag41nst_o1d_8086_syst3ms\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "sweet16",
+      "type": "upload",
+      "path": "./attachments/sweet16",
+      "dynamic": false
+    }
+  ],
+  "hints": [],
+  "endpoint": {
+    "type": "tcp",
+    "host": "sweet16.challs.srdnlen.it",
+    "port": 1616
+  },
+  "checker": {
+    "enabled": true,
+    "config": {
+      "timeout": 10
+    }
+  }
+}

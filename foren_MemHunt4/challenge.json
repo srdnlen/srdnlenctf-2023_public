@@ -1,0 +1,23 @@
+{
+  "title": "MemHunt - LEVEL 4",
+  "description": "LEVEL 4. Blue was not enough, some seconds later everything went black with other random white strings printed too fast to be read. Can you find this last secret?\n\nAuthor: [@slsanna](https://github.com/slsanna)",
+  "authors": [
+    "Silvia Lucia Sanna <@slsanna>"
+  ],
+  "tags": [
+    "foren"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{RealMlwr_IncidentResponse\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [],
+  "hints": []
+}

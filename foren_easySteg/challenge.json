@@ -1,0 +1,30 @@
+{
+  "title": "stego WarmUp",
+  "description": "Welcome to the challenges of misc, forensic, and osint! Can you find the flag in this beautiful blank sheet? Good luck!\n\nFlag must be submitted in srdnlen{} format: wrap the found flag in srdnlen{}\n\nAuthor: [lVitaD](https://github.com/LucaVDamiano)",
+  "authors": [
+    "Luca Damiano <@lVitaD>"
+  ],
+  "tags": [
+    "misc"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{w3lc0m3_t0_0s1nt_f0r3n_mi2c!\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "stegoWarmUp.png",
+      "type": "upload",
+      "path": "./attachments/stegoWarmUp.png",
+      "dynamic": false
+    }
+  ],
+  "hints": []
+}

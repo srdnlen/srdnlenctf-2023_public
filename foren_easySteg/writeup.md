@@ -1,0 +1,1 @@
+The flag has been hidden with an lsb in the file, an online tool can easily retrieve it. Be careful that the flag is not inserted in the srdnlen{} format so it should be put by hand in the correct format

@@ -1,0 +1,41 @@
+{
+  "title": "PwnTube",
+  "description": "Who is this guy? And why can't I skip this ad?!\nHe really looks like someone who could never give me up though :)\n\nThis is a remote challenge, you can connect to the service with: `nc pwntube.challs.srdnlen.it 1337`\n\nAuthor: manu_massi",
+  "authors": [
+    "Emmanuele Massidda <@manu_massi>"
+  ],
+  "tags": [
+    "pwn"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{pwn4t1n4\\?\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "PwnTube",
+      "type": "upload",
+      "path": "./attachments/PwnTube",
+      "dynamic": false
+    }
+  ],
+  "hints": [],
+  "endpoint": {
+    "type": "tcp",
+    "host": "pwntube.challs.srdnlen.it",
+    "port": 1661
+  },
+  "checker": {
+    "enabled": true,
+    "config": {
+      "timeout": 30
+    }
+  }
+}

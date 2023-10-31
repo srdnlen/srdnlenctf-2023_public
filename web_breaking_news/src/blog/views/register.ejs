@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="page_type" content="np-template-header-footer-from-plugin">
+  <script src="https://code.jquery.com/jquery-1.8.3.js"></script>
+  <script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
+  <title>Login</title>
+  <link rel="stylesheet" href="/static/css/nicepage.css" media="screen">
+  <link rel="stylesheet" href="/static/css/login.css" media="screen">
+  <link id="u-theme-google-font" rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+
+  <meta name="theme-color" content="#478ac9">
+  <meta property="og:title" content="Home">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="website">
+  <style>
+    .notification {
+      background-color: #ff5656;
+      border-style: solid;
+      border-width: thin;
+      border-color: #0f0f0f;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body class="u-body u-xl-mode">
+  <header class="u-clearfix u-header u-palette-1-base u-header" id="sec-b1d9">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <p class="u-align-left u-text u-text-1">
+        <span style="font-size: 1.875rem;">Breaking News</span>
+        <span style="font-size: 3rem;"></span>
+      </p>
+    </div>
+  </header>
+  <section class="u-clearfix u-section-1" id="sec-fe32">
+    <div class="u-clearfix u-sheet u-sheet-1" style="margin-bottom: 8em;">
+      <h4 class="u-text u-text-default u-text-1">Please, register</h4>
+      <div class="u-form u-form-1">
+        <% if (message.msg) { %>
+          <div class="notification is-danger">
+            <%= message.msg %>
+          </div>
+          <% } %>
+            <form action="/register" method="POST" id="formLogin"
+              class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form"
+              style="padding: 10px;">
+              <div class="u-form-group u-form-name">
+                <label for="name-2343" class="u-form-control-hidden u-label"></label>
+                <input type="text" placeholder="Username" id="name-2343" name="username"
+                  class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+              </div>
+              <div class="u-form-email u-form-group">
+                <label for="email-2343" class="u-form-control-hidden u-label"></label>
+                <input type="password" placeholder="Password" id="email-2343" name="password"
+                  class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+              </div>
+              <div class="u-form-checkbox u-form-group u-form-group-3">
+                <input type="checkbox" id="remember" name="remember" value="On">
+                <label for="remember" class="u-label">Remember me</label>
+              </div>
+              <div class="u-align-center u-form-group u-form-submit">
+                <button type='submit' onclick="submit()"
+                  class="u-btn u-btn-round u-btn-submit u-button-style u-radius-8">Submit</button><br>
+              </div>
+              <div>
+                <a href="/" class="u-align-center u-form-group">Login</a>
+              </div>
+            </form>
+      </div>
+    </div>
+  </section>
+  </br></br></br></br></br></br>
+
+  <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0647">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <p class="u-small-text u-text u-text-variant u-text-1">Copyright 2023, all rigths reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>

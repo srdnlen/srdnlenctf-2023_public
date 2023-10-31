@@ -1,0 +1,40 @@
+{
+  "title": "My Bidda",
+  "description": "Cities are way overcrowded and noisy, I want to live in a small town. Tell me about your bidda.\n\nOne of my friends found a vulnerability but he told me it's fixed now, can you check?\n\nWebsite: [http://mybidda.challs.srdnlen.it](http://mybidda.challs.srdnlen.it)\n\nAuthor: @pysu",
+  "authors": [
+    "Lorenzo Pisu <@pysu>"
+  ],
+  "tags": [
+    "web"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{be_careful_with_instruction_set_randomization\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "my_bidda.zip",
+      "type": "upload",
+      "path": "./attachments/my_bidda.zip",
+      "dynamic": false
+    }
+  ],
+  "hints": [],
+  "endpoint": {
+    "type": "http",
+    "url": "http://mybidda.challs.srdnlen.it:80/"
+  },
+  "checker": {
+    "enabled": true,
+    "config": {
+      "timeout": 10
+    }
+  }
+}

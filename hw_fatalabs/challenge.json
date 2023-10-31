@@ -1,0 +1,38 @@
+{
+  "title": "FatalABS",
+  "description": "Do you know? An innovative startup create a new type of ABS for the supercars.\n\nIt is revolutionary! It has the capacity to adapt to the condition of the road.\n\nSome rumors said this chip contains a fatal bug, but idk... can you analyze it for me? Here's the datasheet of the sensor and the VHDL file of the CPU.\n\n_Flag format:_ `srdnlen{[the value returned from sensor assuming there is 100% of humidity (16bits)]_[the line where the bug starts]}`\n\nAuthors: [@simonecocco](https://github.com/simonecocco)",
+  "authors": [
+    "Simone Cocco <@simonecocco>"
+  ],
+  "tags": [
+    "hardware",
+    "misc",
+    "bug"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{0000000011111111_98\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "H69SC Humidity.pdf",
+      "type": "upload",
+      "path": "./attachments/H69SC Humidity.pdf",
+      "dynamic": false
+    },
+    {
+      "name": "superabs.vhd",
+      "type": "upload",
+      "path": "./attachments/superabs.vhd",
+      "dynamic": false
+    }
+  ],
+  "hints": []
+}

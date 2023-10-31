@@ -1,0 +1,40 @@
+{
+  "title": "Spongeweb",
+  "description": "I really like hacking.<br>\nI really like privacy.<br>\nAnd I really like spongebob.<br>\nI combined all of them and created an anonymous sharing platform with html support. Feel free to share payloads, malware and stolen credit cards ;).\n\nBtw it's called spongeweb but it has nothing to do with [this](https://trollpasta.com/wiki/SpongeWeb).\n\nSite: [http://spongeweb.challs.srdnlen.it](http://spongeweb.challs.srdnlen.it)\n\n\nAuthor: [@sanmatte](https://github.com/sanmatte)",
+  "authors": [
+    "Matteo Sanna <@sanmatte>"
+  ],
+  "tags": [
+    "web"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{XSSS_cr0Ss_S1T3_sP0nG3wEb_SQLi\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "spongeweb.zip",
+      "type": "upload",
+      "path": "./attachments/spongeweb.zip",
+      "dynamic": false
+    }
+  ],
+  "hints": [],
+  "endpoint": {
+    "type": "http",
+    "url": "http://spongeweb.challs.srdnlen.it:80/"
+  },
+  "checker": {
+    "enabled": true,
+    "config": {
+      "timeout": 10
+    }
+  }
+}

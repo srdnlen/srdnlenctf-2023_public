@@ -1,0 +1,23 @@
+{
+  "title": "PyLogger",
+  "description": "An hacker was able to encode my files but I don't know how.\n\nFortunately I was able to recover what he types on the keyboard.\n\nCan you help me to decode my files?",
+  "authors": [
+    "Luca Minnei <@minn3>"
+  ],
+  "tags": [
+    "misc"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{L0gg3r_4r3_Alwa1s_u53fuLL\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [],
+  "hints": []
+}

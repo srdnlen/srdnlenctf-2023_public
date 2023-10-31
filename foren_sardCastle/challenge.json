@@ -1,0 +1,23 @@
+{
+  "title": "sardCastle",
+  "description": "I really want to build a sandcastle..\n\n[https://drive.google.com/file/d/17fnrZkRQb83qBgzO61SkpVbtn_tIk5lh/view?usp=sharing](https://drive.google.com/file/d/17fnrZkRQb83qBgzO61SkpVbtn_tIk5lh/view?usp=sharing))]",
+  "authors": [
+    "Pietro Crabu <@pc98>"
+  ],
+  "tags": [
+    "foren"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{8pl1tt3d_1n_t3n\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [],
+  "hints": []
+}

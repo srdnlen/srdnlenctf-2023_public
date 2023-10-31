@@ -1,0 +1,40 @@
+{
+  "title": "Sardinian Dishes",
+  "description": "I think that a friend of mine is using this recipe sharing website to sell illegal cheese. Can you find a way to access the forbidden recipe?\n\nAnd while you're there, share some of you <s>worst</s> best local recipes.\n\n[https://edition.cnn.com/travel/article/casu-marzu-worlds-most-dangerous-cheese/index.html](https://edition.cnn.com/travel/article/casu-marzu-worlds-most-dangerous-cheese/index.html)\n\nWebsite: [http://sardinianrecipes.challs.srdnlen.it](http://sardinianrecipes.challs.srdnlen.it)\n\nAuthor: @pysu",
+  "authors": [
+    "Lorenzo Pisu <@pysu>"
+  ],
+  "tags": [
+    "web"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{there_are_some_dirty_worms_in_my_template\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "sardiniandishes.zip",
+      "type": "upload",
+      "path": "./attachments/sardiniandishes.zip",
+      "dynamic": false
+    }
+  ],
+  "hints": [],
+  "endpoint": {
+    "type": "http",
+    "url": "http://sardinianrecipes.challs.srdnlen.it:80/"
+  },
+  "checker": {
+    "enabled": true,
+    "config": {
+      "timeout": 10
+    }
+  }
+}

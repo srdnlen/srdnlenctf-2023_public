@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  pwntube:
+    build: .
+    container_name: 'PwnTube'
+    tty: true
+    restart: unless-stopped
+    ports:
+      - '1661:1337/tcp'

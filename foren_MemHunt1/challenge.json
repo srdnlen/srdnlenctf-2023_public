@@ -1,0 +1,23 @@
+{
+  "title": "MemHunt - LEVEL 1",
+  "description": "I was doing the presentation for the end of my first PhD Year and when I started writing my Acer laptop changed behavior... It was like possessed...!! Different windows opened and I could not find the presentation anymore. I captured the RAM but can you help me find what I wrote? This is a 4-levels challenge. LEVEL 1.\n\nDownload challenge: [https://tinyurl.com/srdnlen23-MemHunt](https://tinyurl.com/srdnlen23-MemHunt)\n\nAuthor: [@slsanna](https://github.com/slsanna)",
+  "authors": [
+    "Silvia Lucia Sanna <@slsanna>"
+  ],
+  "tags": [
+    "foren"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{w3lc0m3_T0:IncidentResponse\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [],
+  "hints": []
+}

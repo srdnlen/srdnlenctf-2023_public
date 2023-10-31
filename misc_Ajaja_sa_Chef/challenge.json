@@ -1,0 +1,30 @@
+{
+  "title": "Ajaja sa Chef",
+  "description": "My Sardinian grandmother was a great chef and pastry chef, when I went to visit her, she always delighted me with a typical recipe. Today I would like to try to replicate it and I asked her to send me the recipe, but besides being so weird and big I don\u2019t understand anything. Can you help me?\n\nAuthor: [@SalvaC\u00e0](https://github.com/SalvatoreCastello)",
+  "authors": [
+    "Salvatore Castello <@SalvaC\u00e0>"
+  ],
+  "tags": [
+    "misc"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{seada_goes_only_with_honey\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "Retzetaprosanipote.pdf",
+      "type": "upload",
+      "path": "./attachments/Retzetaprosanipote.pdf",
+      "dynamic": false
+    }
+  ],
+  "hints": []
+}

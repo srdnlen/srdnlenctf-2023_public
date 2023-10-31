@@ -1,0 +1,36 @@
+{
+  "title": "RSA",
+  "description": "Was this the RSA that Rivest, Shamir and Adleman intended?\n\nAuthor: [@lrnzsir](https://github.com/lrnzsir)",
+  "authors": [
+    "Lorenzo Siriu <@lrnzsir>"
+  ],
+  "tags": [
+    "crypto"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{W3lc0m3_t0_srdnlen_ctf_2023_crypt0_ch4ll3ng3s\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "chall.py",
+      "type": "upload",
+      "path": "./attachments/chall.py",
+      "dynamic": false
+    },
+    {
+      "name": "output.txt",
+      "type": "upload",
+      "path": "./attachments/output.txt",
+      "dynamic": false
+    }
+  ],
+  "hints": []
+}

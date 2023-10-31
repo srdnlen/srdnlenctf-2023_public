@@ -1,0 +1,41 @@
+{
+  "title": "Free Real Estate",
+  "description": "The trick to owning a small fortune is to start off with a big fortune.\n\nTo receive the contract address and claim the flag, ask the server at fre.challs.srdnlen.it:8546",
+  "authors": [
+    "Matteo Cornacchia <@zoop>"
+  ],
+  "tags": [
+    "blockchain"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{all_my_precious_monkes_gone_95b73faa9203447e\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "FreeRealEstate.sol",
+      "type": "upload",
+      "path": "./attachments/FreeRealEstate.sol",
+      "dynamic": false
+    }
+  ],
+  "hints": [],
+  "endpoint": {
+    "type": "tcp",
+    "host": "fre.challs.srdnlen.it",
+    "port": 8546
+  },
+  "checker": {
+    "enabled": true,
+    "config": {
+      "timeout": 10
+    }
+  }
+}

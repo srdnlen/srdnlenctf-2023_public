@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="page_type" content="np-template-header-footer-from-plugin">
+  <link rel="stylesheet" href="/static/css/nicepage.css" media="screen">
+  <link rel="stylesheet" href="/static/css/news.css" media="screen">
+  <link id="u-theme-google-font" rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+  <style>
+    #name_input,
+    #name_input_delete {
+      background-image: url('/static/images/searchicon.png');
+      background-size: 20px;
+      background-position: 10px 12px;
+      background-repeat: no-repeat;
+      width: 100%;
+      font-size: 16px;
+      padding: 12px 20px 12px 40px;
+      border: 1px solid #ddd;
+      margin-bottom: 12px;
+    }
+
+    .info {
+      background-color: #59ff08;
+      border-style: solid;
+      border-width: thin;
+      border-color: #0f0f0f;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    .error {
+      background-color: #ff5656;
+      border-style: solid;
+      border-width: thin;
+      border-color: #0f0f0f;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0px;
+    }
+
+    .left,
+    .middle,
+    .right {
+      display: inline-block;
+      zoom: 1;
+      vertical-align: top;
+      font-size: 14px;
+    }
+  </style>
+  <meta name="theme-color" content="#478ac9">
+  <title>Breaking News</title>
+</head>
+
+<body class="u-body u-xl-mode">
+  <header class="u-clearfix u-header u-palette-1-base u-header" id="sec-b1d9">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <p class="u-align-left u-text u-text-1">
+        <span style="font-size: 1.875rem;">Breaking News</span>
+        <span style="font-size: 3rem;"></span>
+        <a href="/logout"
+          class="u-border-none u-btn u-btn-round u-button-style u-hover-white u-palette-1-base u-radius-50 u-text-body-alt-color u-text-hover-black u-btn-1">
+          <span class="u-file-icon u-icon u-text-black">
+            <img src="/static/images/back.png" style="font-size: 30px;">
+          </span>
+        </a>
+      </p>
+    </div>
+  </header>
+  <section class="u-align-left u-clearfix u-section-1" id="sec-6562">
+    <div class="u-clearfix u-sheet u-sheet-1" style="margin-bottom: 8em;">
+      <div class="u-expanded-width u-tab-links-align-justify u-tabs u-tabs-1">
+        <h4>Report to Admin</h4>
+        <div class="u-form u-form-1"></div>
+        <% if (message.msg) { %>
+          <div class="info">
+            <%= message.msg %>
+          </div>
+          <% } else if (message.error){ %>
+            <div class="error">
+              <%= message.error %>
+            </div>
+            <% } %>
+              <form action="/report" method="POST" id="formReport"
+                class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form"
+                style="padding: 10px;">
+                <div class="u-form-group u-form-name">
+                  <label for="name-2343" class="u-form-control-hidden u-label"></label>
+                  <input type="text" placeholder="url" id="name-2343" name="url"
+                    class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+                </div>
+                <div class="u-form-group u-form-submit">
+                  <button type='submit' onclick="submit()"
+                    class="u-btn u-btn-round u-btn-submit u-button-style u-radius-8">Submit</button><br>
+                </div>
+              </form>
+              <br>
+              <h5>!!! The url to submit for the report should start with http://breaking-news:3000 !!!</h5>
+      </div>
+    </div>
+    </div>
+    <script>
+      function submit() {
+        let form = document.getElementById("formReport");
+        form.submit();
+      }
+    </script>
+  </section>
+
+  <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0647">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <p class="u-small-text u-text u-text-variant u-text-1">Copyright 2023, all rigths reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>

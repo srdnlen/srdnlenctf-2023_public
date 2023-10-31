@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="keywords" content="INTUITIVE">
+  <meta name="description" content="">
+  <meta name="page_type" content="np-template-header-footer-from-plugin">
+  <link rel="stylesheet" href="/static/css/nicepage.css" media="screen">
+  <link rel="stylesheet" href="/static/css/news.css" media="screen">
+  <script src="https://code.jquery.com/jquery-1.8.3.js"></script>
+  <script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
+  <script src="/static/js/wasm.js" type="text/javascript"></script>
+  <script src="/static/js/script_news.js" type="text/javascript"></script>
+  <link id="u-theme-google-font" rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+  <style>
+    #name_input,
+    #name_input_delete {
+      background-image: url('/static/images/searchicon.png');
+      background-size: 20px;
+      background-position: 10px 12px;
+      background-repeat: no-repeat;
+      width: 100%;
+      font-size: 16px;
+      padding: 12px 20px 12px 40px;
+      border: 1px solid #ddd;
+      margin-bottom: 12px;
+    }
+
+    .info {
+      background-color: #59ff08;
+      border-style: solid;
+      border-width: thin;
+      border-color: #0f0f0f;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    .error {
+      background-color: #ff5656;
+      border-style: solid;
+      border-width: thin;
+      border-color: #0f0f0f;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0px;
+    }
+
+    .left,
+    .middle,
+    .right {
+      display: inline-block;
+      zoom: 1;
+      vertical-align: top;
+      font-size: 14px;
+    }
+  </style>
+  <meta name="theme-color" content="#478ac9">
+  <meta property="og:title" content="Configure">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="website">
+  <title>Breaking News</title>
+</head>
+
+<body class="u-body u-xl-mode">
+  <header class="u-clearfix u-header u-palette-1-base u-header" id="sec-b1d9">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <p class="u-align-left u-text u-text-1">
+        <span style="font-size: 1.875rem;">Breaking News</span>
+        <span style="font-size: 3rem;"></span>
+        <a href="/logout"
+          class="u-border-none u-btn u-btn-round u-button-style u-hover-white u-palette-1-base u-radius-50 u-text-body-alt-color u-text-hover-black u-btn-1">
+          <span class="u-file-icon u-icon u-text-black">
+            <img src="/static/images/back.png" style="font-size: 30px;">
+          </span>
+        </a>
+
+      </p>
+    </div>
+  </header>
+  <section class="u-align-left u-clearfix u-section-1" id="sec-6562">
+    <div class="u-clearfix u-sheet u-sheet-1" style="margin-bottom: 8em;">
+      <div class="u-expanded-width u-tab-links-align-justify u-tabs u-tabs-1">
+        <ul class="u-spacing-30 u-tab-list u-unstyled" role="tablist">
+          <li class="u-tab-item" role="presentation" style="border: solid; border-width: 1px">
+            <a class="u-active-palette-2-base u-button-style u-tab-link u-tab-link-2 tab-button active"
+              data-tab="tab-it" id="link-tab-4d57" href="#tab-it" role="tab" aria-controls="tab-4d57"
+              aria-selected="false">Italian News</a>
+          </li>
+          <li class="u-tab-item" role="presentation" style="border: solid; border-width: 1px">
+            <a class="u-active-palette-2-base u-button-style u-tab-link u-tab-link-3 tab-button" data-tab="tab-wr"
+              id="link-tab-3a42" href="#tab-wr" role="tab" aria-controls="tab-3a42" aria-selected="false">World News</a>
+          </li>
+        </ul>
+
+        <div class="u-tab-content" style="margin-top: 50px;">
+          <div class="tab u-tab-active u-align-left u-container-style u-tab-pane" id="tab-it" role="tabpanel"
+            aria-labelledby="link-tab-4d57">
+            <div class="u-container-layout u-valign-middle u-container-layout-2">
+              <div class="u-expanded-width u-table u-table-responsive u-table-1">
+                <div class='container'>
+                  <table>
+                    <thead>
+                      <tr></tr>
+                    </thead>
+                    <tbody>
+                      <% for (let i=0; i < news.length; i++) { %>
+                        <% if (news[i].type=='italian' ) { %>
+                          <tr>
+                            <td>
+                              <div class="left container d-flex justify-content-center flex-column">
+                                <div>
+                                  <div class="card d-flex" style="background-color: white;"
+                                    style="height: 100px; width: 100px;">
+                                    <div>
+                                      <div class="card-body">
+                                        <h5 class="card-title" style="font-size: 25px; font-weight: bold">
+                                          <%= news[i].title%>
+                                        </h5>
+                                        <h7 class="card-title" style="font-size: 20px;">
+                                          <%= news[i].data%>
+                                        </h7>
+                                        <p class="card-body" style="font-size: 17px;">
+                                          <%= news[i].news%>
+                                        </p>
+                                      </div>
+                                    </div>
+                                    <img src=<%="/static/images/" + news[i].img%>
+                                    class="card-img-top"
+                                    style="width: 50%; height: 50%; display: block; margin-left: auto; margin-right:
+                                    auto;"
+                                    />
+                                    <br><br>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <% }%>
+                            <% } %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab u-align-left u-container-style u-tab-pane" id="tab-wr" role="tabpanel"
+            aria-labelledby="link-tab-3a42">
+            <div class="u-container-layout u-valign-middle u-container-layout-3">
+              <div class="u-expanded-width u-table u-table-responsive u-table-2">
+                <table>
+                  <thead>
+                    <tr></tr>
+                  </thead>
+                  <tbody>
+                    <% for (let i=0; i < news.length; i++) { %>
+                      <% if (news[i].type=='world' ) { %>
+                        <tr>
+                          <td>
+                            <div class="left container d-flex justify-content-center flex-column">
+                              <div>
+                                <div class="card d-flex" style="background-color: white;"
+                                  style="height: 100px; width: 100px;">
+                                  <div>
+                                    <div class="card-body">
+                                      <h5 class="card-title" style="font-size: 25px; font-weight: bold">
+                                        <%= news[i].title%>
+                                      </h5>
+                                      <h7 class="card-title" style="font-size: 20px;">
+                                        <%= news[i].data%>
+                                      </h7>
+                                      <p class="card-body" style="font-size: 17px;">
+                                        <%= news[i].news%>
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <img src=<%="/static/images/" + news[i].img%>
+                                  class="card-img-top"
+                                  style="width: 50%; height: 50%; display: block; margin-left: auto; margin-right:
+                                  auto;"
+                                  />
+                                  <br><br>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <% }%>
+                          <% } %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <p style="font-size: medium;">If you have any bug, please <a href="/report">Report to admin</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0647">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <p class="u-small-text u-text u-text-variant u-text-1">Copyright 2023, all rigths reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>

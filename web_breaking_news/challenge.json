@@ -1,0 +1,36 @@
+{
+  "title": "Breaking News",
+  "description": "Breaking News: We are developing a new fantastic CTF world blog. How good (or bad) is this new fantastic WebAss\u2026 Site? help us!!\n\nWebsite: [http://breaking-news.challs.srdnlen.it](http://breaking-news.challs.srdnlen.it)\n\nAuthors: @DarkKnight @DieSoi",
+  "authors": [
+    "Christian Scano <@DarkKnight>",
+    "Diego Soi <@DieSoi>"
+  ],
+  "tags": [
+    "web",
+    "pwn",
+    "rev"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{jQu3ry_4nd_w4sm_l0v3rs\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [],
+  "hints": [],
+  "endpoint": {
+    "type": "http",
+    "url": "http://breaking-news.challs.srdnlen.it:80/"
+  },
+  "checker": {
+    "enabled": true,
+    "config": {
+      "timeout": 10
+    }
+  }
+}

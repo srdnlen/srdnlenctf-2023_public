@@ -1,0 +1,30 @@
+{
+  "title": "ISAbel",
+  "description": "My grandma left me this recipe, unfortunately I no long remember where she lives... Could you pls help me find her?\n\nAuthor: [@cvrlx](https://github.com/cvrlx)",
+  "authors": [
+    "Alessandro Carlo Melis <@cvrlx>"
+  ],
+  "tags": [
+    "misc"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{Teti_CorsoItalia\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "culurgiones.jpg",
+      "type": "upload",
+      "path": "./attachments/culurgiones.jpg",
+      "dynamic": false
+    }
+  ],
+  "hints": []
+}

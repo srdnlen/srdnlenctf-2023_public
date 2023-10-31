@@ -1,0 +1,27 @@
+{{#if Autenticated}}
+    <h3 class="text-center">Welcome, {{username}}!</h3>
+    <br/>
+
+    <div class="row">
+        {{#each fighters}}
+        <div class="col-sm-6">
+            <div class="card w-60 text-white bg-secondary mb-3" style="max-width: 25rem;">
+            <div class="card-body">
+                <h5 class="card-title">Fighter name: <b>{{pugName}}</b></h5>
+                <p class="card-text">Special ability: {{ability}}</p>
+                <p class="card-text">Secret: {{secret}}</p>
+                <a href="/fighter-customization?pugName={{pugName}}"><button class="btn btn-primary">Customize</button></a>
+            </div>
+            </div>
+        </div>
+        {{/each}}
+
+        <a href="/choose-fighters">
+            <button class="btn btn-primary w-100 text-center py-2">
+                Create a new fighter!
+            </button>
+        </a>
+    </div>
+{{else}}
+    <h3 class="text-center">Register an account or login to play PugWar!</h3>
+{{/if}}

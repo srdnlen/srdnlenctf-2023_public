@@ -1,0 +1,30 @@
+{
+  "title": "My_first_game!",
+  "description": "I created my first video game!\n\nThe code is a little messy but there shouldn't be any problems!\n\nAuthor: [@SannaZ](https://github.com/Za9Game)",
+  "authors": [
+    "Massimo Sanna <@SannaZ>"
+  ],
+  "tags": [
+    "gamepwn"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{m7_7iRsT_gAm3_pWn!!!\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "my_first_game!.apk",
+      "type": "upload",
+      "path": "./attachments/my_first_game!.apk",
+      "dynamic": false
+    }
+  ],
+  "hints": []
+}

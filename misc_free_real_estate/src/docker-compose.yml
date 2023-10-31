@@ -1,0 +1,11 @@
+version: "3.3"
+
+services:
+  challenge:
+    build: .
+    ports:
+      - "8546:4001"
+    restart: unless-stopped
+    environment:
+      - FLAG=srdnlen{all_my_precious_monkes_gone_95b73faa9203447e}
+      - ALCHEMY_API_KEY=https://eth-sepolia.g.alchemy.com/v2/8xj3VHuTAuYaxqCvBm5ZNNkdGkpu7PPS

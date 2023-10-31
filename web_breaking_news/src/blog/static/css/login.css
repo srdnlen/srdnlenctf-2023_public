@@ -1,0 +1,15 @@
+.u-section-1 {
+  margin-top: 100px;
+}
+
+.u-section-1 .u-form-1 {
+  height: 183px;
+  width: 570px;
+  margin: 12px auto 60px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

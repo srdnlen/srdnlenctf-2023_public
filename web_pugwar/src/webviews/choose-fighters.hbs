@@ -1,0 +1,67 @@
+<form id="create-form" style="width: 40%; margin-left: 30%">
+    <h1 class="h3 mb-3 fw-normal">Create your own Pug Warrior!</h1>
+
+  <div class="form-group">
+    <label for="create-name">Pug Name</label>
+    <input type="text" class="form-control" id="create-name" placeholder="Name">
+  </div>
+  <div class="form-group">
+    <label for="create-ability">Special Ability</label>
+    <textarea type="text" class="form-control" id="create-ability" placeholder="ability" style="height: 200px" maxlength="200"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="create-secret">Pugs are very good at keeping secrets, you can tell one to your trusted warrior.</label>
+    <textarea type="text" class="form-control" id="create-secret" placeholder="secret" style="height: 200px" maxlength="200"></textarea>
+  </div>
+    <input id="create-submit" class="w-100 btn btn-lg btn-primary" type="submit" value="Create!"></input>
+
+    <br/>
+    <br/>
+    <div id="response" class="text-center small py-1" style="border-radius: 4px; display: none"></div>
+</form>
+
+
+<style>
+        input {
+        width: 90%;
+        padding: 10px;
+        margin: 5px;
+        outline: none;
+      }
+      input[type="submit"] {
+        width: 150px;
+      }
+      input::placeholder {
+        color: #000000;
+        opacity: 1;
+      }
+      input:placeholder-shown {
+        border: 1px solid #22a0ee;
+      }
+</style>
+
+<script>
+    document.getElementById('create-form').onsubmit = async (e) => {
+        e.preventDefault()
+        const ability = document.getElementById('create-ability').value
+        const pugName = document.getElementById('create-name').value
+        const secret = document.getElementById('create-secret').value
+
+
+        const req = await fetch('/choose-fighters', {
+            method: 'POST',
+            body: JSON.stringify({ pugName, ability, secret }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        const res = await req.json()
+
+        if(res.success) {
+            window.location.href = '/'
+            return                
+        } else {
+            document.getElementById('response').innerText = res.error
+        }
+    }
+</script>

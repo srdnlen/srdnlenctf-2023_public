@@ -1,0 +1,41 @@
+{
+  "title": "The Impossible Escape",
+  "description": "Another CTF, another \"impossible\" escape challenge... Oh, the excitement!\n\nThis is a remote challenge, you can connect to the service with: `nc tie.challs.srdnlen.it 1734`\n\nAuthor: [@uNickz](https://github.com/uNickz)",
+  "authors": [
+    "Nicholas Meli <@uNickz>"
+  ],
+  "tags": [
+    "misc"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{s3t4ttr_0n_Cl4ss_1nst34d_0f_0bj3ct,_1s_3X0t1C_3n0ugh\\?\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "The Impossible Escape.py",
+      "type": "upload",
+      "path": "./attachments/The Impossible Escape.py",
+      "dynamic": false
+    }
+  ],
+  "hints": [],
+  "endpoint": {
+    "type": "tcp",
+    "host": "tie.challs.srdnlen.it",
+    "port": 1734
+  },
+  "checker": {
+    "enabled": true,
+    "config": {
+      "timeout": 10
+    }
+  }
+}

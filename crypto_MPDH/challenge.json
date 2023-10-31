@@ -1,0 +1,36 @@
+{
+  "title": "MPDH",
+  "description": "Just another Diffie-Hellman, but what group are we in?\n\nAuthor: [@lrnzsir](https://github.com/lrnzsir)",
+  "authors": [
+    "Lorenzo Siriu <@lrnzsir>"
+  ],
+  "tags": [
+    "crypto"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{MPDH_st@nds_f0r_Multiplicative-Permutation_Diffie-Hellman_0bv10usly_2FJ8IVnp4bkhCPv3\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "chall.py",
+      "type": "upload",
+      "path": "./attachments/chall.py",
+      "dynamic": false
+    },
+    {
+      "name": "output.txt",
+      "type": "upload",
+      "path": "./attachments/output.txt",
+      "dynamic": false
+    }
+  ],
+  "hints": []
+}

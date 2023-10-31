@@ -1,0 +1,23 @@
+<form style="width: 40%; margin-left: 30%" id="create-form"></form>
+    <h1 class="h3 mb-3 fw-normal"> Best Warriors </h1>
+        <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Ability</th>
+            <th scope="col">Pic</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each pugs}}
+            <tr>
+            <th scope="row">{{@index}}</th>
+            <td>{{pugName}}</td>
+            <td>{{abilities}}</td>
+            <td><img src="/{{pugName}}.jpg" class="img-thumbnail" width="400" height="500"></td>
+            </tr>
+            {{/each}}
+        </tbody>
+        </table>
+</form>

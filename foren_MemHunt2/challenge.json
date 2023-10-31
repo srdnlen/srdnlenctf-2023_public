@@ -1,0 +1,23 @@
+{
+  "title": "MemHunt - LEVEL 2",
+  "description": "LEVEL 2. I downloaded the template from the University website... I am not accusing them, but... maybe... they made something weird? The flag is a meaningful sentence wrapped in srdnlen{}\n\nAuthor: [@slsanna](https://github.com/slsanna)",
+  "authors": [
+    "Silvia Lucia Sanna <@slsanna>"
+  ],
+  "tags": [
+    "foren"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{y0u_d3alt_w1th_M4CR0\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [],
+  "hints": []
+}

@@ -1,0 +1,30 @@
+{
+  "title": "Flappy",
+  "description": "Bro from where the fuck this blud is playing flappy bird with his wrist on mf matlab???\n\nThat shit is pumping 3 FPS at most \ud83d\ude02\ud83d\ude02\ud83d\ude02\n\nFlag format:\n`srdnlen{city_theplace_thestandtitle}` _(lowercase)_\n\nAuthor: [@SalvaC\u00e0](https://github.com/SalvatoreCastello)",
+  "authors": [
+    "Salvatore Castello <@SalvaC\u00e0>"
+  ],
+  "tags": [
+    "foren"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{cagliari_giardinipubblici_conosciamoisegnalidelnostrocorpo\\?\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "flappy.jpg",
+      "type": "upload",
+      "path": "./attachments/flappy.jpg",
+      "dynamic": false
+    }
+  ],
+  "hints": []
+}

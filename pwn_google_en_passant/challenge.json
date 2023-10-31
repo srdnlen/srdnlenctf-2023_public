@@ -1,0 +1,42 @@
+{
+  "title": "Google En Passant",
+  "description": "Mi stai prendendo per il culo ??? Ma di che \\* stai parlando amico ? Tu sei il pi\u00f9 grande perdente che io abbia mai visto in tutta la mia vita ! Tu stavi ancora facendo PIP\u00cc nel tuo pannolino quando io battevo gi\u00e0 giocatori molto pi\u00f9 forti di te! Tu non sei un professionista, perch\u00e9 i professionisti sanno come perdere e si congratulano con il proprio avversario, tu invece stai piangendo come una femminuccia da quando ti ho battuto! Si coraggioso, si onesto con te stesso e smettila di lagnarti!!! Tutti quanti sanno che sono un ottimo giocatore di Blitz, posso battere chiunque al mondo in una singola partita! E \"w\"esley \"s\"o \u00e8 un nessuno per me, solo un giocatore che piange ogni volta che perde, (ricorda cosa hai detto riguardo a Firouzja ) !!! Basta cercare di infangare il mio nome, io merito di avere una buona reputazione durante tutta la mia carriera scacchistica, Io ti sto Ufficialmente invitato ad una partita Blitz dal vivo con un premio in denaro! Ognuno di noi investir\u00e0 5000$ e il vincitore terr\u00e0 tutto! Suggerisco a tutti coloro che sono interessati a questa situazione di guardare ai miei risultati nei campionati di Blitz del 2016 e 2017, e questo dovrebbe essere abbastanza... Non c'\u00e8 bisogno di ascoltare ogni piagnucolone, Tigran Petrosyan \u00e8 sempre una giocata Onesta ! E se qualcuno dovesse continuare a parlare Ufficialmente riguardo a me in questo modo, ci incontreremo in Tribunale! Dio benedica con la verit\u00e0! La Verit\u00e0 non morir\u00e0 mai ! I bugiardi saranno espulsi...\n\nThe service is online at at gep.challs.srdnlen.it:1660",
+  "authors": [
+    "Matteo Cornacchia <@zoop>"
+  ],
+  "tags": [
+    "pwn",
+    "rev"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{new_exploit_just_dropped_93fb1acc009ee431\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "gep",
+      "type": "upload",
+      "path": "./attachments/gep",
+      "dynamic": false
+    }
+  ],
+  "hints": [],
+  "endpoint": {
+    "type": "tcp",
+    "host": "gep.challs.srdnlen.it",
+    "port": 1660
+  },
+  "checker": {
+    "enabled": true,
+    "config": {
+      "timeout": 60
+    }
+  }
+}

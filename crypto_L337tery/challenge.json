@@ -1,0 +1,35 @@
+{
+  "title": "L337tery",
+  "description": "Bob the builder JSC is organizing a `L337tery` $\\cong$ `1337 lottery`. Are you so lucky to win the grand prize?\n\nThis is a remote challenge, you can connect to the service with: `nc l337tery.challs.srdnlen.it 1337`\n\nAuthor: [@lrnzsir](https://github.com/lrnzsir)",
+  "authors": [
+    "Lorenzo Siriu <@lrnzsir>"
+  ],
+  "tags": [
+    "crypto"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{B0b_th3_bu1ld3r_JSC_c4nn0t_b3_trust3d_just_l1k3_b4d_f1lt3r_funct10ns_1uyY8V3vTsA6nePC\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "server.py",
+      "type": "upload",
+      "path": "./attachments/server.py",
+      "dynamic": false
+    }
+  ],
+  "hints": [],
+  "endpoint": {
+    "type": "tcp",
+    "host": "l337tery.challs.srdnlen.it",
+    "port": 1337
+  }
+}

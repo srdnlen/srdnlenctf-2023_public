@@ -1,0 +1,36 @@
+{
+  "title": "Improvise Adapt Overcome",
+  "description": "Can you adapt to my new ML classifier? It even has a detector that rejects all the adversaries.\n\nDisclaimer: This challenge was created with the help of [Pralab](https://sites.unica.it/pralab/)\n\nWebsite: [http://adapt.challs.srdnlen.it/docs](http://adapt.challs.srdnlen.it/docs)\n\nAuthor: @maurapintor, @pysu, @slsanna",
+  "authors": [
+    "Maura Pintor <@maurapintor>",
+    "Lorenzo Pisu <@pysu>",
+    "Silvia Lucia Sanna <@slsanna>"
+  ],
+  "tags": [
+    "misc",
+    "mlsec"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{adaptive_attacks_are_easy\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [],
+  "hints": [],
+  "endpoint": {
+    "type": "http",
+    "url": "http://adapt.challs.srdnlen.it:80/"
+  },
+  "checker": {
+    "enabled": true,
+    "config": {
+      "timeout": 10
+    }
+  }
+}

@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  breaking-news:
+    build: ./blog
+    restart: always
+    ports:
+      - "0.0.0.0:80:3000"
+    environment:
+      - FLAG=srdnlen{jQu3ry_4nd_w4sm_l0v3rs}
+      - ADMIN_PASSWORD=T]EfUL>t]RqB@pe)~!0mX4HQp}t:?^U.v=
+      - BOT_URL=http://bot:9999/visit
+
+  bot:
+    build: ./bot
+    restart: always
+    ports:
+      - 0.0.0.0:9999:9999
+    environment:
+      - BLOG_URL=http://breaking-news:3000

@@ -1,0 +1,31 @@
+{
+  "title": "Urban Odissey",
+  "description": "I can't remember the city where i lost my trail, can you help me in finding my secret map to the treasure?",
+  "authors": [
+    "Aurora Arrus <@anauroranon>"
+  ],
+  "tags": [
+    "network",
+    "osint"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{\"1t_w4snt_t00_d1ff1cult_but_Mumb41_1s_c4h0tic_30100\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "urban_odissey.pcapng",
+      "type": "upload",
+      "path": "./attachments/urban_odissey.pcapng",
+      "dynamic": false
+    }
+  ],
+  "hints": []
+}

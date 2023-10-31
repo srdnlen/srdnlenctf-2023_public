@@ -1,0 +1,39 @@
+{
+  "title": "GTD",
+  "description": "During the Cold War, HWLabs&Co. and SRDNLen were collaborating to develop a compact and fast RAM memory chip with many unique features. However, their efforts were not in vain, as one of their rivals had managed to steal a prototype of the chip 74LS6969 with an EEPROM of 8KB connected to it, along with a USB peripheral for connecting it to computers and an experimental datasheet that defined the mini circuit.\n\nThe flag format is `srdnlen{[FLAG]}`.",
+  "authors": [
+    "Simone Cocco <@simonecocco>",
+    "Lorenzo Siriu <@lrnzsir>",
+    "Simone Sulis <@salsa>"
+  ],
+  "tags": [
+    "hardware",
+    "misc",
+    "bug"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{i_r34lly_H4TE_h4rDwArE_69420\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "SN74_54x6969.pdf",
+      "type": "upload",
+      "path": "./attachments/SN74_54x6969.pdf",
+      "dynamic": false
+    }
+  ],
+  "hints": [],
+  "endpoint": {
+    "type": "tcp",
+    "host": "gtd.challs.srdnlen.it",
+    "port": 42069
+  }
+}

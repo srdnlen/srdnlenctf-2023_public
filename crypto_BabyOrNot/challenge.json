@@ -1,0 +1,35 @@
+{
+  "title": "BabyOrNot",
+  "description": "To some this challenge may be baby, to others not.\n\nDo not despair if you are on the latter: along this path, a powerful tool for breaking cryptographic schemes awaits you!\n\nThis is a remote challenge, you can connect to the service with: `nc babyornot.challs.srdnlen.it 1338`\n\nAuthor: [@lrnzsir](https://github.com/lrnzsir)",
+  "authors": [
+    "Lorenzo Siriu <@lrnzsir>"
+  ],
+  "tags": [
+    "crypto"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{Cl3@rly_th1s_1s_4_Baby-Paper/Lattice_ch@ll3ng3_but_c4n_b3_4_g00d_st4rt1ng_p01nt_N4WlSjsPoafGkZpv\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "server.py",
+      "type": "upload",
+      "path": "./attachments/server.py",
+      "dynamic": false
+    }
+  ],
+  "hints": [],
+  "endpoint": {
+    "type": "tcp",
+    "host": "babyornot.challs.srdnlen.it",
+    "port": 1338
+  }
+}

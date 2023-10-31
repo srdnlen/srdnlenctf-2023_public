@@ -1,0 +1,43 @@
+{
+  "title": "RSB",
+  "description": "Sometimes crypters like to store their source files in weird ways... We found this file on a server, can you understand what all of this does and decrypt the flag?\n\nThis is a remote challenge, you can connect to the service with: `nc rsb.challs.srdnlen.it 1339`\n\nAuthors:\n[@chRistianoDeveloper](https://github.com/chRistianoDeveloper)\n[@uNickz](https://github.com/uNickz)",
+  "authors": [
+    "Davide Sechi <@chRistianoDeveloper>",
+    "Nicholas Meli <@uNickz>"
+  ],
+  "tags": [
+    "crypto",
+    "rev"
+  ],
+  "hiddenTags": [],
+  "order": 0,
+  "flags": [
+    "^srdnlen\\{MErsEnnE_tWISt3r_IN_tW1SteD_C0d3_vERy_fUNny_jDO8dpC3zoPBwXJjfT8Q\\}$"
+  ],
+  "scoring": {
+    "type": "dynamic",
+    "start": 500,
+    "stop": 50,
+    "decay": 30
+  },
+  "files": [
+    {
+      "name": "RSB.pyb",
+      "type": "upload",
+      "path": "./attachments/RSB.pyb",
+      "dynamic": false
+    }
+  ],
+  "hints": [],
+  "endpoint": {
+    "type": "tcp",
+    "host": "rsb.challs.srdnlen.it",
+    "port": 1339
+  },
+  "checker": {
+    "enabled": true,
+    "config": {
+      "timeout": 5
+    }
+  }
+}

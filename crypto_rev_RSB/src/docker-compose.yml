@@ -1,0 +1,8 @@
+version: "3"
+
+services:
+  rsb:
+    build: ./
+    container_name: rsb
+    ports:
+      - "0.0.0.0:1339:1337"

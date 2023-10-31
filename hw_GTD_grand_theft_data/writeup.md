@@ -341,10 +341,10 @@ From here, it can be seen that the content of the EEPROM is a program (ELF) XORe
 
 ## Part 3: rev
 
-For this part of the writeup, I used "avr-objdump" and "IDA" along with "simavr" and "avr-gdb" to run and debug the binary.
+For this part of writeup i used "avr-objdump" and "IDA" along with "simavr" and "avr-gdb" to run and debug the binary.
 
 
-Keep in mind that atmega328p registers can only contain one byte.
+Keep in mind that in atmega328p registers can only contain one byte.
 
 
 [AVR Instruction Set Manual](https://ww1.microchip.com/downloads/en/devicedoc/atmel-0856-avr-instruction-set-manual.pdf)
@@ -353,7 +353,7 @@ To run and debug the binary we use
 ```shell
 simavr -d -g -m atmega328p main.elf
 ```
-and then we can run avr-gdb and attach it the process
+and then we can run avr-gdb and attach to the process
 ```shell
 avr-gdb main.elf
 target remote :1234
@@ -365,13 +365,13 @@ sbi     DDRD, DDD2    (sbi	0x0a, 2)
 cbi     PORTD, PORTD2 (cbi	0x0b, 2)
 ```
 
-Analyzing the function we can notice that it loads something from Z+ to r0
+Analysing the function we can notice that it loads something from Z+ to r0
 ```assembly
 ld      r0, Z+
 tst     r0
 brne	.-6 
 ```
-This is our input, in fact, if we analyze it with avr-gdb we will notice it loading all the values from register r0 to r27, every register is one byte long,
+This is our input, in fact if we analyse it with avr-gdb we will notice it loading all the values from register r0 to r27, every register is one byte long,
 it then checks how many bytes we loaded (the program adds 0x1 to the number of bytes)
 ```assembly
 sbiw	r30, 0x1d (29)
@@ -381,7 +381,7 @@ rjmp	.-2
 
 It will pass the check only if we loaded 28 bytes, from this we can assume that our flag is 28 characters long, otherwise it'll end in an infinite loop.
 
-The next task will be to analyze the function that is being called by "main", we need it to return true in order to exec "sbi     PORTD, PORTD2" instruction
+The next task will be to analyse the function that is being called by "main", we need it to return true in order to exec "sbi     PORTD, PORTD2" instruction
 ```assembly
 ldi     r24, 0
 ldi     r25, 0
@@ -391,7 +391,7 @@ breq	.+2
 sbi     PORTD, PORTD2 (0x0b, 2)
 ```
 
-After disassembling the function we will see that it consists of a really big loop that repeats itself 27 times, but before analyzing it, we can jump to the end of the function, we can notice that it will return true only if r2 == 27
+After disassembling the function we will see that it consists in a really big loop that repet itself 27 times, but before analysing it, we can jump to the end of the function, there we can notice that it will return true only if r2 == 27
 ```assembly
 loc_646:
 ldi     r24, 1
@@ -433,151 +433,99 @@ pop     r2
 ret
 ```
 In order to make this happen we need to understand what is happening on the inside of the loop
-but it would require too much time for us to do that, if we go back to the loop we can see that r2 changes just one time throughout the whole loop
+but it would require to much time for us to do that, if we go back to the loop we can see that r2 changes just one time trought the whole loop
 ```assembly
 call    sub_5B
 add     r2, r24
 adc     r3, r25
 ```
-Apparently, the value of r24 depends on the result of call sub_5B.
+Apparently the value of r24 depends from the result of call sub_5B.
 
-After entering inside sub_5B we will see that the only thing it does is jump into a table where it only does subtractions
+After entering inside sub_5B we will see that the only thing it does is jumping in a table where it only does subtractions
 ```assembly
 subi	r24, 0xC7	; 199
 sbci	r25, 0x27	; 39
-sbci	r26, 0x7B	; 123
-sbci	r27, 0xF9	; 249
 ret
 subi	r24, 0xC7	; 199
 sbci	r25, 0x4A	; 74
-sbci	r26, 0x4B	; 75
-sbci	r27, 0x27	; 39
 ret
 subi	r24, 0xB3	; 179
 sbci	r25, 0xE0	; 224
-sbci	r26, 0xCA	; 202
-sbci	r27, 0x60	; 96
 ret
 subi	r24, 0x8D	; 141
 sbci	r25, 0xFD	; 253
-sbci	r26, 0xEE	; 238
-sbci	r27, 0xB6	; 182
 ret
 subi	r24, 0x5B	; 91
 sbci	r25, 0x75	; 117
-sbci	r26, 0xAC	; 172
-sbci	r27, 0xE5	; 229
 ret
 subi	r24, 0x0D	; 13
 sbci	r25, 0x2D	; 45
-sbci	r26, 0xD2	; 210
-sbci	r27, 0xF0	; 240
 ret
 subi	r24, 0x95	; 149
 sbci	r25, 0x63	; 99
-sbci	r26, 0xB9	; 185
-sbci	r27, 0xBA	; 186
 ret
 subi	r24, 0x6D	; 109
 sbci	r25, 0x0B	; 11
-sbci	r26, 0x5A	; 90
-sbci	r27, 0xB8	; 184
 ret
 subi	r24, 0xE7	; 231
 sbci	r25, 0x1B	; 27
-sbci	r26, 0xFD	; 253
-sbci	r27, 0x3E	; 62
 ret
 subi	r24, 0xA9	; 169
 sbci	r25, 0x30	; 48
-sbci	r26, 0x25	; 37
-sbci	r27, 0xB3	; 179
 ret
 subi	r24, 0x07	; 7
 sbci	r25, 0xFA	; 250
-sbci	r26, 0xD8	; 216
-sbci	r27, 0x37	; 55
 ret
 subi	r24, 0x21	; 33
 sbci	r25, 0x81	; 129
-sbci	r26, 0x85	; 133
-sbci	r27, 0xF4	; 244
 ret
 subi	r24, 0xB3	; 179
 sbci	r25, 0x40	; 64
-sbci	r26, 0xED	; 237
-sbci	r27, 0x3D	; 61
 ret
 subi	r24, 0xF5	; 245
 sbci	r25, 0x98	; 152
-sbci	r26, 0xEF	; 239
-sbci	r27, 0xCC	; 204
 ret
 subi	r24, 0xD5	; 213
 sbci	r25, 0xFC	; 252
-sbci	r26, 0x17	; 23
-sbci	r27, 0x02	; 2
 ret
 subi	r24, 0x29	; 41
 sbci	r25, 0xF4	; 244
-sbci	r26, 0x09	; 9
-sbci	r27, 0xB0	; 176
 ret
 subi	r24, 0xDD	; 221
 sbci	r25, 0xED	; 237
-sbci	r26, 0xD9	; 217
-sbci	r27, 0x18	; 24
 ret
 subi	r24, 0x27	; 39
 sbci	r25, 0x66	; 102
-sbci	r26, 0xA0	; 160
-sbci	r27, 0x2A	; 42
 ret
 subi	r24, 0x0F	; 15
 sbci	r25, 0xE4	; 228
-sbci	r26, 0xE8	; 232
-sbci	r27, 0x7D	; 125
 ret
 subi	r24, 0x5D	; 93
 sbci	r25, 0x41	; 65
-sbci	r26, 0xF0	; 240
-sbci	r27, 0x05	; 5
 ret
 subi	r24, 0x1B	; 27
 sbci	r25, 0x33	; 51
-sbci	r26, 0x68	; 104
-sbci	r27, 0x54	; 84
 ret
 subi	r24, 0x0D	; 13
 sbci	r25, 0x22	; 34
-sbci	r26, 0xAD	; 173
-sbci	r27, 0xAD	; 173
 ret
 subi	r24, 0xE5	; 229
 sbci	r25, 0xE2	; 226
-sbci	r26, 0x9D	; 157
-sbci	r27, 0x02	; 2
 ret
 subi	r24, 0x23	; 35
 sbci	r25, 0xAC	; 172
-sbci	r26, 0x71	; 113
-sbci	r27, 0x2E	; 46
 ret
 subi	r24, 0xBF	; 191
 sbci	r25, 0xE3	; 227
-sbci	r26, 0xBA	; 186
-sbci	r27, 0x1B	; 27
 ret
 subi	r24, 0xF3	; 243
 sbci	r25, 0xED	; 237
-sbci	r26, 0xB6	; 182
-sbci	r27, 0x96	; 150
 ret
 ```
 
-Going back to our loop we see that the values inside r24, r25, r26, and r27 are calculated based on our input, in particular from the value "i" and "i+1".
-Knowing that: r24 will be added to r0, r0 has to be 27 and that the loop repets 27 times, we can assume that, in order to find the flag, r24 has to be 1, while 25, 26, 27 have to be 0.
-From this info, we can write a script to bruteforce our input in order to make r24, r25, r26, and r27 the right values in the moment of the subtraction.
+Going back to our loop we see that the values inside r24, r25, r26 and r27 are calculated based on our input, in particular from the value "i" and "i+1".
+Knowing that: r24 will be added to r0, r0 has to be 27 and that the loop repets 27 times, we can assume that, in order to find the flag, r24 has to be 1, while 25 has to be 0.
+From this info we can write a script to bruteforce our input in order to make r24, r25 the right values in the moment of the subtruction.
 
 ```python
 import gdb
@@ -601,19 +549,19 @@ def firsts_two(char):
             gdb.execute("c")
             
 
-            #checking if r24 equals 1 and r25, r26, r27 are equal to 0
-            #we need r24 to be 1 because it will be added to r2 
+            #checking if r24 equals 1 and r25 equals 0
+            #we need r24 to be 1 because it will be add to r2 
             res = check()
 
-            if res == 4:
+            if res == 2:
                 print(i, j)
                 firsts += i + j
                 return firsts
-                #checking if r24 equals 1 and r25, r26, r27 are equal to 0
+                #checking if r24 equals 1 and r25 equals 0
             else:
                 gdb.execute("monitor r")
                 res = 0
-                #res != 4 means that our input is not correct and we have to restart the binary
+                #res != 2 means that our input in not correct and we have to restart the binary
                 fill("")
     
 
@@ -625,7 +573,7 @@ def full_flag(firsts, char):
             fill(flag)
             gdb.execute("c")
             res = check()
-            if res == 4:
+            if res == 2:
                 flag += i
                 break
             else:
@@ -635,17 +583,17 @@ def full_flag(firsts, char):
     return flag
         
 def check():
-    for i in range(5):
+    for i in range(3):
         gdb.execute("ni")
         # stop before ret
     
     reg = gdb.execute("p/x $r24")
     if "0x1" in reg:
             res += 1     
-    for itr in range(25, 28):
-        reg = gdb.execute("p/x $r" + str(itr))
-        if "0x0" in reg:
-            res += 1
+    
+    reg = gdb.execute("p/x $r25")
+    if "0x0" in reg:
+	res += 1
     return res 
 
 
@@ -663,7 +611,7 @@ def main():
     
     firsts = ""
     firsts = firsts_two(char)
-    #bruteforcing the first two characters of our buffer
+    #bruteforcing the firsts two characters of our buffer
     
     flag = full_flag(firsts, char)
     #we can keep bruteforcing one byte at a time to find the full flag

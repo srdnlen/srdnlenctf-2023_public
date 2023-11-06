@@ -46,7 +46,7 @@ Connection: close
 
 a1pr f3perg! j0aq3e1at u0j 1 p4a q3pelcg 1g
 ```
-For the first time, the server's response differs, offering an encrypted message. When you attempt to decrypt this message using the ROT13 algorithm, you'll uncover the text "n1ce s3cret! w0nd3r1ng h0w 1 c4n d3crypt 1t." This suggests that the secret is encrypted with some algorithm. After using base64 decryption, the content of the secret is revealed:
+For the first time, the server's response differs, offering an encrypted message. When you attempt to decrypt this message using the ROT13 algorithm, you'll uncover the text "n1ce s3cret! w0nd3r1ng h0w 1 c4n d3crypt 1t." This suggests that the secret is hidden and some algorithm is used. After using Base64 decoding, the content of the secret is revealed:
 
 ```
 lat:19.06076194200696, Long:72.85644979004708
@@ -57,7 +57,7 @@ These appear to be coordinates! After searching these coordinates online, you'll
 
 ## Part two: Finding the correct flag
 
-The pcapng file remains extensive, containing at least 1000 HTTP interactions. As you continue your exploration, you'll notice more empty requests. However, at a certain point, the request/response pattern changes for all subsequent interactions. Now, each request includes the name of a city within the data, and the server responds with encrypted messages that change every time.
+The pcapng file remains extensive, containing at least 1000 HTTP interactions. As you continue your exploration, you'll notice more empty requests. However, at a certain point, the request/response pattern changes for all subsequent interactions. Now, each request includes the name of a city within the data, and the server responds with encoded messages that change every time.
 
 ```
 POST / HTTP/1.1
@@ -79,7 +79,7 @@ Connection: close
 c3JkbmxlbntiM18wbjNfZjB1cl90NGszX2IzdHczM25fbjN4dF80c2szZF93aDNyM180NTE0NX0=
 ```
 
-By examining the format of the strings, it becomes apparent that these strings are encrypted with base64 as well. After the decryption, you'll discover something intriguing: they resemble flag formats.
+By examining the format of the strings, it becomes apparent that these strings are encoded with Base64 as well. After the decoding, you'll discover something intriguing: they resemble flag formats.
 
 For example;
 ```
@@ -111,7 +111,7 @@ Connection: close
 
 c3JkbmxlbnsxdF93NHNudF90MDBfZDFmZjFjdWx0X2J1dF9NdW1iNDFfMXNfYzRoMHRpY18zMDEwMH0=
 ```
-After decrypting the server's response with base64, the correct flag was revealed:
+After decrypting the server's response with Base64, the correct flag was revealed:
 ```
 srdnlen{1t_w4snt_t00_d1ff1cult_but_Mumb41_1s_c4h0tic_30100}
 ```

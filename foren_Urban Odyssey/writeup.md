@@ -48,10 +48,6 @@ a1pr f3perg! j0aq3e1at u0j 1 p4a q3pelcg 1g
 ```
 For the first time, the server's response differs, offering an encrypted message. When you attempt to decrypt this message using the ROT13 algorithm, you'll uncover the text "n1ce s3cret! w0nd3r1ng h0w 1 c4n d3crypt 1t." This suggests that the secret is hidden and some algorithm is used. After using Base64 decoding, the content of the secret is revealed:
 
-```
-lat:19.06076194200696, Long:72.85644979004708
-```
-
 These appear to be coordinates! After searching these coordinates online, you'll discover they lead to Sant Dnyaneshwar Nagar, Bandra East, Mumbai, Maharashtra 400051, India. Interesting, but what's the significance of this information?
 
 
@@ -111,7 +107,9 @@ Connection: close
 
 c3JkbmxlbnsxdF93NHNudF90MDBfZDFmZjFjdWx0X2J1dF9NdW1iNDFfMXNfYzRoMHRpY18zMDEwMH0=
 ```
-After decrypting the server's response with Base64, the correct flag was revealed:
+
+After decoding the server's response with Base64, the correct flag was revealed:
+
 ```
 srdnlen{1t_w4snt_t00_d1ff1cult_but_Mumb41_1s_c4h0tic_30100}
 ```

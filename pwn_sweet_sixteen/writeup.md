@@ -68,10 +68,10 @@ The trickiest part of the challenge is to understand how to analyze it without f
 
 There are two ways to analyze the binary statically:
 
-- Using **IDA** by setting the processor to **8086** - produces a correct 16-bit disassembly (starting from the 0x20 header - according to the ELKS documentation, the first 0x20 bytes of the binary are for header-based information and contain no code). I tried some tests with Ghidra with no luck, but maybe there is a way to see that as well. **However, be careful: as IDA treats the file as a pure binary file, we are not considering relocations here: the binary is rebased. Hence, every address you find in IDA should be subtracted by 0x20.**
+- Using **IDA** by setting the processor to **8086** - produces a correct 16-bit disassembly (starting from the 0x20 header - according to the ELKS documentation, the first 0x20 bytes of the binary are for header-based information and contain no code). I tried some tests with Ghidra with no luck (Edit: somebody during the competition managed to use Ghidra by loading the executable in 16 bit real mode, thus also managing to decompile the functions!), but maybe there is a way to see that as well. **However, be careful: as IDA treats the file as a pure binary file, we are not considering relocations here: the binary is rebased. Hence, every address you find in IDA should be subtracted by 0x20.**
 - Using the **disassembler provided in the ELKS** Git Hub (in particular, a binary called **hostdisasm** contained in the elkscmd/debug folder). The nice thing about this challenge is that you have EVERYTHING you need to analyze the binary without resorting to external tools. There is only one “little” problem: **the authors of elks did not include the compiling of the debug folder in the Makefile** (at least, according to the current version), so you have to **manually edit the Makefile in the elkscmd folder to include the debug folder** before running the build.sh file. When you try to run the build.sh file, you may get a compilation error on a constant value. To fix it, just modify the target .c file with a value for the variable, and you are good to go. I understand that taking this road can be quite tricky, but it can be a nice journey to learn something new. **The reward is immediately seeing the correct address for the instructions, as they are already rebased to 0x0 by hostdisasm.**
 
-Concerning dynamic analysis, there is only one way to carry out proper dynamic analysis: using the **blink16** tool that is reported in the ELKS Github: [https://github.com/ghaerr/blink16](https://github.com/ghaerr/blink16). 
+Concerning dynamic analysis, there is <s>only one way to carry out proper dynamic analysis</s> (Edit: somebody during the competition managed to perform some kind of debugging by directly running GDB on elksemu and reaching the process memory from there): using the **blink16** tool that is reported in the ELKS Github: [https://github.com/ghaerr/blink16](https://github.com/ghaerr/blink16). 
 
 Once you manage to extract the disassembly and (maybe) perform dynamic analysis, you will soon realize that:
 
@@ -79,6 +79,7 @@ Once you manage to extract the disassembly and (maybe) perform dynamic analysis,
 - Using blink16 is painful. In my case, I could not even step over (some of my team members could do it, so it is possible, but overall the execution is annoying anyway). However, using blink is useful to see that the binary is rebased starting from the address 0x0.
 
 And here comes the “key” intuition of the challenge: ***this challenge was designed to be solved “blindly”.**  No deep inspection of the disassembly or huge dynamic analyses are required. This demands the player to have some intuition and experience to understand this point. 
+Edit: some players solved this challenge by properly decompiling the binary with Ghidra. Hence, even a non-blind solution is definitely possible.
 
 ### Exploitation
 
